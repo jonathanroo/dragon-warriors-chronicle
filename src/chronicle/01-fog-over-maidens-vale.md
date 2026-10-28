@@ -26,7 +26,7 @@ There were many people on the road that day, but only one stopped to ask who the
 
 Further on, the pair came upon a barbarian, Brian Enorath, fighting four little green men with pointy ears. Brian did not exactly cover himself in glory, but he killed one. The sorcerer killed another, and Sir Nockturn, already showing off, killed two.
 
-Through all of this a villager lay quivering and moaning on the ground. In the heat of the fight the sorcerer let off a fire spell and set light to him. We put him out, covered it up, and he never seemed to notice who was responsible. His name was Dumpy, and he wanted us to know that Dumpy is as Dumpy does.
+Through all of this a villager lay quivering and moaning on the ground. In the heat of the fight the sorcerer let off a fire spell and set light to him. We put him out, covered it up, and he never seemed to notice who was responsible. His name was Dumpy, he called the goblins "gobbos", and he wanted us to know that Dumpy is as Dumpy does.
 
 ## The village
 
