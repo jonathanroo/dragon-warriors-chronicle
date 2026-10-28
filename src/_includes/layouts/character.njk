@@ -1,0 +1,51 @@
+---
+layout: layouts/base.njk
+---
+{% import "macros.njk" as m %}
+{% set appearances = collections.sessions | mentioning("company", page.fileSlug) %}
+{% set kills = collections.sessions | kills("by", page.fileSlug) %}
+<article class="folio">
+  <header class="folio-head">
+    <p class="kicker">{{ profession }}{% if rank %}, Rank {{ rank }}{% endif %}{% if player %}<span aria-hidden="true"> · </span>played by {{ player }}{% endif %}</p>
+    <h1>{{ title }}</h1>
+    {{ m.statusMark(status) }}
+    {% if epithet %}<p class="lede">{{ epithet }}</p>{% endif %}
+  </header>
+
+  <div class="two-col">
+    <div class="main-col">
+      <div class="prose has-dropcap">
+        {{ content | safe }}
+      </div>
+
+  {% if kills.length %}
+  <section aria-labelledby="kills-h">
+    <h2 id="kills-h">Slain by this hand <span class="count">{{ kills | total }}</span></h2>
+    <ul class="plain">
+      {%- for k in kills %}
+      {% set c = collections.bestiary | bySlug(k.creature) %}
+      <li>{{ k.count }} × {% if c %}<a href="{{ c.url }}">{{ c.data.title }}</a>{% else %}{{ k.creature }}{% endif %}, in <a href="{{ k.session.url }}">{{ k.session.data.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if appearances.length %}
+  <section aria-labelledby="app-h">
+    <h2 id="app-h">Appears in the Chronicle</h2>
+    {{ m.sessionList(appearances) }}
+  </section>
+  {% endif %}
+    </div>
+    <div class="sidebar">
+      {% if portrait %}<figure class="portrait"><img src="{{ portrait }}" alt="{{ portraitAlt or ('Portrait of ' + title) }}"></figure>{% endif %}
+      {{ m.statblock(stats) }}
+      {% if kit and kit.length %}
+      <section class="kit">
+        <h2>Carried</h2>
+        <ul>{% for item in kit %}<li>{{ item }}</li>{% endfor %}</ul>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</article>

@@ -1,0 +1,48 @@
+{#- Stat block for a character or creature. Only stats that are set are shown. -#}
+{% macro statblock(stats, caption) %}
+{% if stats %}
+{% set rows = [
+  ["strength", "Strength"], ["reflexes", "Reflexes"], ["intelligence", "Intelligence"],
+  ["psychic", "Psychic Talent"], ["looks", "Looks"],
+  ["attack", "Attack"], ["defence", "Defence"],
+  ["magicalAttack", "Magical Attack"], ["magicalDefence", "Magical Defence"],
+  ["evasion", "Evasion"], ["stealth", "Stealth"], ["perception", "Perception"],
+  ["health", "Health Points"], ["armour", "Armour Factor"], ["damage", "Damage"],
+  ["movement", "Movement"], ["rank", "Rank-equivalent"]
+] %}
+<div class="statbox">
+<table class="statblock">
+  <caption>{{ caption or "Characteristics" }}</caption>
+  <tbody>
+    {%- for row in rows %}{% if stats[row[0]] is defined %}
+    <tr><th scope="row">{{ row[1] }}</th><td>{{ stats[row[0]] }}</td></tr>
+    {%- endif %}{% endfor %}
+  </tbody>
+</table>
+</div>
+{% endif %}
+{% endmacro %}
+
+{#- Comma separated links to items in a collection, by slug -#}
+{% macro links(collection, slugs) -%}
+{%- for slug in slugs -%}
+  {%- set item = collection | bySlug(slug) -%}
+  {%- if item %}<a href="{{ item.url }}">{{ item.data.title }}</a>{% else %}{{ slug }}{% endif %}
+  {%- if not loop.last %}, {% endif -%}
+{%- endfor -%}
+{%- endmacro %}
+
+{#- A list of sessions as entry links -#}
+{% macro sessionList(sessions) %}
+<ol class="session-list">
+  {%- for s in sessions %}
+  <li><span class="num">{{ s.data.session | roman }}</span><a href="{{ s.url }}">{{ s.data.title }}</a></li>
+  {%- endfor %}
+</ol>
+{% endmacro %}
+
+{% macro statusMark(status) %}
+{% if status == "dead" %}<span class="mark mark-dead">Fallen</span>
+{% elif status == "missing" or status == "unknown" %}<span class="mark">Whereabouts unknown</span>
+{% endif %}
+{% endmacro %}

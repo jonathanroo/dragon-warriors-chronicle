@@ -1,0 +1,44 @@
+---
+layout: layouts/base.njk
+---
+{% import "macros.njk" as m %}
+{% set seen = collections.sessions | mentioning("encountered", page.fileSlug) %}
+{% set kills = collections.sessions | kills("creature", page.fileSlug) %}
+<article class="folio">
+  <header class="folio-head">
+    <p class="kicker">{{ kind or "Creature" }}{% if habitat %}<span aria-hidden="true"> · </span>{{ habitat }}{% endif %}</p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+  </header>
+
+  <div class="two-col">
+    <div class="main-col">
+      <div class="prose has-dropcap">
+        {{ content | safe }}
+      </div>
+
+  {% if kills.length %}
+  <section aria-labelledby="kills-h">
+    <h2 id="kills-h">Who struck them down</h2>
+    <ul class="plain">
+      {%- for k in kills %}
+      {% set who = collections.company | bySlug(k.by) %}
+      <li>{{ k.count }} by {% if who %}<a href="{{ who.url }}">{{ who.data.title }}</a>{% else %}{{ k.by or "the company" }}{% endif %}, in <a href="{{ k.session.url }}">{{ k.session.data.title }}</a></li>
+      {%- endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if seen.length %}
+  <section aria-labelledby="seen-h">
+    <h2 id="seen-h">Encountered in</h2>
+    {{ m.sessionList(seen) }}
+  </section>
+  {% endif %}
+    </div>
+    <div class="sidebar">
+      {{ m.statblock(stats, "As we reckon it") }}
+      <p class="tally-badge"><span class="big">{{ kills | total }}</span> slain by the company</p>
+    </div>
+  </div>
+</article>

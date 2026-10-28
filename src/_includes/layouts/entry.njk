@@ -1,0 +1,68 @@
+---
+layout: layouts/base.njk
+---
+{% import "macros.njk" as m %}
+{% set scribeItem = collections.company | bySlug(scribe) if scribe %}
+<article class="folio">
+  <header class="folio-head">
+    <p class="kicker">Entry the {{ session | ordinal }}<span aria-hidden="true"> · </span><time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time></p>
+    <h1>{{ title }}</h1>
+    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if location %}<div><dt>Where</dt><dd>{{ location }}</dd></div>{% endif %}
+      {% if days %}<div><dt>Days passed</dt><dd>{{ days }}</dd></div>{% endif %}
+      {% if scribeItem %}<div><dt>As told by</dt><dd><a href="{{ scribeItem.url }}">{{ scribeItem.data.title }}</a></dd></div>{% endif %}
+    </dl>
+  </header>
+
+  <div class="prose has-dropcap">
+    {{ content | safe }}
+  </div>
+
+  {% if slain and slain.length %}
+  <section class="tally" aria-labelledby="tally-h">
+    <h2 id="tally-h">The Tally of the Slain</h2>
+    <table class="ledger">
+      <thead><tr><th scope="col">Creature</th><th scope="col">Struck down by</th><th scope="col" class="n">Number</th></tr></thead>
+      <tbody>
+        {%- for k in slain %}
+        {% set c = collections.bestiary | bySlug(k.creature) %}
+        {% set who = collections.company | bySlug(k.by) %}
+        <tr>
+          <td>{% if c %}<a href="{{ c.url }}">{{ c.data.title }}</a>{% else %}{{ k.creature }}{% endif %}</td>
+          <td>{% if who %}<a href="{{ who.url }}">{{ who.data.title }}</a>{% else %}{{ k.by or "The company" }}{% endif %}</td>
+          <td class="n">{{ k.count or 1 }}</td>
+        </tr>
+        {%- endfor %}
+      </tbody>
+    </table>
+  </section>
+  {% endif %}
+
+  {% if quotes and quotes.length %}
+  <section class="quotes" aria-labelledby="quotes-h">
+    <h2 id="quotes-h">Overheard at the Table</h2>
+    {% for q in quotes %}
+    <figure>
+      <blockquote><p>{{ q.text }}</p></blockquote>
+      <figcaption>{{ q.who }}</figcaption>
+    </figure>
+    {% endfor %}
+  </section>
+  {% endif %}
+
+  <aside class="dramatis" aria-label="Who and what appeared">
+    {% if company and company.length %}<p><span class="label">Of the company</span> {{ m.links(collections.company, company) }}</p>{% endif %}
+    {% if souls and souls.length %}<p><span class="label">Souls and miscreants</span> {{ m.links(collections.souls, souls) }}</p>{% endif %}
+    {% if encountered and encountered.length %}<p><span class="label">Creatures met</span> {{ m.links(collections.bestiary, encountered) }}</p>{% endif %}
+  </aside>
+
+  {% set prev = collections.sessions | getPreviousCollectionItem %}
+  {% set next = collections.sessions | getNextCollectionItem %}
+  {% if prev or next %}
+  <nav class="pager" aria-label="Other entries">
+    {% if prev %}<a class="prev" href="{{ prev.url }}" rel="prev"><span class="label">Previous entry</span>{{ prev.data.title }}</a>{% endif %}
+    {% if next %}<a class="next" href="{{ next.url }}" rel="next"><span class="label">Next entry</span>{{ next.data.title }}</a>{% endif %}
+  </nav>
+  {% endif %}
+</article>

@@ -1,0 +1,39 @@
+---
+layout: layouts/base.njk
+title: Home
+---
+{% import "macros.njk" as m %}
+{% set latest = collections.sessions | last %}
+<section class="hero">
+  <p class="kicker">Here begins</p>
+  <h1>{{ site.title }}</h1>
+  <p class="lede">{{ site.subtitle }}</p>
+  <ul class="tallies" aria-label="The story so far">
+    <li><span class="big">{{ collections.sessions.length }}</span> {{ "entry" if collections.sessions.length == 1 else "entries" }}</li>
+    <li><span class="big">{{ collections.company | whereNot("status", "dead") | length }}</span> still standing</li>
+    <li><span class="big">{{ collections.sessions | slainTotal }}</span> foes slain</li>
+  </ul>
+</section>
+
+<hr class="rule" aria-hidden="true">
+
+{% if latest %}
+<section class="latest" aria-labelledby="latest-h">
+  <p class="kicker">The latest entry, the {{ latest.data.session | ordinal }}</p>
+  <h2 id="latest-h"><a href="{{ latest.url }}">{{ latest.data.title }}</a></h2>
+  {% if latest.data.summary %}<p class="lede">{{ latest.data.summary }}</p>{% endif %}
+  <p><a class="more" href="{{ latest.url }}">Read the entry</a></p>
+</section>
+{% endif %}
+
+<section class="wide" aria-labelledby="company-h">
+  <h2 id="company-h">The Company</h2>
+  <ul class="cards">
+    {% for c in collections.company | whereNot("status", "dead") %}
+    <li class="card">
+      <a href="{{ c.url }}"><span class="card-title">{{ c.data.title }}</span></a>
+      <span class="card-sub">{{ c.data.profession }}{% if c.data.rank %}, Rank {{ c.data.rank }}{% endif %}</span>
+    </li>
+    {% endfor %}
+  </ul>
+</section>

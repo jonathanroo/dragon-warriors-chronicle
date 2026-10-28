@@ -1,0 +1,33 @@
+---
+layout: layouts/base.njk
+title: Souls and Miscreants
+permalink: /souls/
+---
+{% set groups = [
+  ["soul", "Souls", "Friends, helpers and the merely harmless"],
+  ["miscreant", "Miscreants", "Rogues, villains and the deeply suspicious"]
+] %}
+<header class="folio-head">
+  <p class="kicker">Folk met upon the road</p>
+  <h1>{{ title }}</h1>
+</header>
+{% for g in groups %}
+{% set people = collections.souls | where("kind", g[0]) %}
+<section class="wide" aria-labelledby="{{ g[0] }}-h">
+  <h2 id="{{ g[0] }}-h">{{ g[1] }}</h2>
+  <p class="aside">{{ g[2] }}</p>
+  {% if people.length %}
+  <ul class="cards">
+    {% for p in people %}
+    <li class="card{% if p.data.status == 'dead' %} is-dead{% endif %}">
+      <a href="{{ p.url }}"><span class="card-title">{{ p.data.title }}</span></a>
+      <span class="card-sub">{{ p.data.role }}{% if p.data.status == "dead" %}, deceased{% endif %}</span>
+      {% if p.data.summary %}<p>{{ p.data.summary }}</p>{% endif %}
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p>None yet.</p>
+  {% endif %}
+</section>
+{% endfor %}

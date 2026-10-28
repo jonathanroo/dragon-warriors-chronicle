@@ -1,0 +1,12 @@
+<svg class="emblem" viewBox="0 0 64 72" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg">
+  <path d="M6 6h52v24c0 20-12 32-26 38C18 62 6 50 6 30z" fill="none" stroke="#2a1f17" stroke-width="3" stroke-linejoin="round"/>
+  <path d="M11 11h42v19c0 16-9 26-21 31C20 56 11 46 11 30z" fill="none" stroke="#2a1f17" stroke-width="1"/>
+  <g stroke="#2a1f17" stroke-linecap="round" fill="none">
+    <path d="M20 18l26 30" stroke-width="2.5"/>
+    <path d="M42 50l6 6M40 46l-4 4" stroke-width="2.5"/>
+    <path d="M44 18c-8 4-16 14-22 28" stroke-width="1.5"/>
+    <path d="M44 18c-2 6-6 12-12 16M44 18c-4 2-9 4-13 9M44 18c0 6-3 11-8 15" stroke-width="1"/>
+    <path d="M22 46l-2 6" stroke-width="1.5"/>
+  </g>
+  <circle cx="18" cy="15" r="2" fill="#2a1f17"/>
+</svg>

@@ -1,0 +1,29 @@
+---
+layout: layouts/base.njk
+---
+{% import "macros.njk" as m %}
+{% set met = collections.sessions | mentioning("souls", page.fileSlug) %}
+<article class="folio">
+  <header class="folio-head">
+    <p class="kicker">{{ "Miscreant" if kind == "miscreant" else "Soul" }}{% if role %}<span aria-hidden="true"> · </span>{{ role }}{% endif %}</p>
+    <h1>{{ title }}</h1>
+    {{ m.statusMark(status) }}
+    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+    <dl class="meta">
+      {% if location %}<div><dt>Found at</dt><dd>{{ location }}</dd></div>{% endif %}
+      {% if met.length %}<div><dt>First met</dt><dd><a href="{{ met[0].url }}">{{ met[0].data.title }}</a></dd></div>{% endif %}
+      {% if opinion %}<div><dt>The company's opinion</dt><dd>{{ opinion }}</dd></div>{% endif %}
+    </dl>
+  </header>
+
+  <div class="prose has-dropcap">
+    {{ content | safe }}
+  </div>
+
+  {% if met.length %}
+  <section aria-labelledby="met-h">
+    <h2 id="met-h">Appears in the Chronicle</h2>
+    {{ m.sessionList(met) }}
+  </section>
+  {% endif %}
+</article>

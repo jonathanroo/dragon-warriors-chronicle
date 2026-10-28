@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: The Chronicle
+permalink: /chronicle/
+---
+<header class="folio-head">
+  <p class="kicker">Every session, in the order it befell us</p>
+  <h1>{{ title }}</h1>
+</header>
+<ol class="contents">
+  {% for s in collections.sessions %}
+  <li>
+    <span class="num">{{ s.data.session | roman }}</span>
+    <div>
+      <a href="{{ s.url }}">{{ s.data.title }}</a>
+      <span class="when">{{ s.data.date | readableDate }}{% if s.data.location %} · {{ s.data.location }}{% endif %}</span>
+      {% if s.data.summary %}<p>{{ s.data.summary }}</p>{% endif %}
+    </div>
+  </li>
+  {% endfor %}
+</ol>

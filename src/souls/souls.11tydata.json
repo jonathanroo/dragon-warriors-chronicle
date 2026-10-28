@@ -1,0 +1,1 @@
+{ "tags": "soul", "layout": "layouts/soul.njk", "permalink": "/souls/{{ page.fileSlug }}/", "kind": "soul", "status": "alive" }

@@ -1,0 +1,21 @@
+---
+layout: layouts/base.njk
+title: Bestiary
+permalink: /bestiary/
+---
+<header class="folio-head">
+  <p class="kicker">Things that have tried to kill us</p>
+  <h1>{{ title }}</h1>
+</header>
+<table class="ledger">
+  <thead><tr><th scope="col">Creature</th><th scope="col">Kind</th><th scope="col" class="n">Slain</th></tr></thead>
+  <tbody>
+    {% for c in collections.bestiary %}
+    <tr>
+      <td><a href="{{ c.url }}">{{ c.data.title }}</a></td>
+      <td>{{ c.data.kind }}</td>
+      <td class="n">{{ collections.sessions | kills("creature", c.fileSlug) | total }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>

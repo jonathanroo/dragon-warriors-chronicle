@@ -1,0 +1,12 @@
+{
+  "title": "The Chronicle",
+  "subtitle": "Being a true account of our wanderings in the land of Legend",
+  "description": "A diary of our Dragon Warriors campaign.",
+  "gm": "Jon",
+  "nav": [
+    { "label": "The Chronicle", "url": "/chronicle/" },
+    { "label": "The Company", "url": "/company/" },
+    { "label": "Bestiary", "url": "/bestiary/" },
+    { "label": "Souls and Miscreants", "url": "/souls/" }
+  ]
+}

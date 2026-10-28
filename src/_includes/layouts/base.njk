@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }}</title>
+  <meta name="description" content="{{ summary or site.description }}">
+  <link rel="preload" href="/fonts/uncial-antiqua-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/css/style.css">
+  <link rel="icon" href="/img/emblem.svg" type="image/svg+xml">
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="masthead">
+    <a href="/" class="brand">
+      {% include "emblem.svg" %}
+      <span class="brand-text">
+        <span class="brand-title">{{ site.title }}</span>
+        <span class="brand-sub">{{ site.subtitle }}</span>
+      </span>
+    </a>
+    <nav class="nav" aria-label="Sections">
+      <ul>
+        {%- for item in site.nav %}
+        <li><a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="{{ 'page' if page.url == item.url else 'true' }}"{% endif %}>{{ item.label }}</a></li>
+        {%- endfor %}
+      </ul>
+    </nav>
+  </header>
+
+  <main id="main" class="page">
+    {{ content | safe }}
+  </main>
+
+  <footer class="colophon">
+    <hr class="rule" aria-hidden="true">
+    <p>Set down by {{ site.gm }}, Games Master, from notes, memory and the occasional exaggeration.</p>
+    <p class="small">An unofficial fan diary of a Dragon Warriors campaign.</p>
+  </footer>
+</body>
+</html>

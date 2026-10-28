@@ -1,0 +1,1 @@
+{ "tags": "character", "layout": "layouts/character.njk", "permalink": "/company/{{ page.fileSlug }}/", "status": "alive" }
