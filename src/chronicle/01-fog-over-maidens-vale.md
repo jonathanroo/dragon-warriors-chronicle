@@ -2,11 +2,11 @@
 session: 1
 title: Fog over Maiden's Vale
 date: 2026-10-27
-location: The road to Maiden's Vale, and the inn
-days: 1
-summary: A knight, a sorcerer and a barbarian meet over four dead goblins, follow a singed villager into a fog-bound village, and are visited in the night by the white women.
+location: The road to Maiden's Vale, the inn, and the woods beyond
+days: 2
+summary: A knight, a sorcerer and a barbarian meet over four dead goblins, follow a singed villager into a fog-bound village, are visited in the night by the white women, and set out to lift the curse with a guide who would rather kill a fox.
 company: [sir-nockturn, pedium, brian-enorath, rudious-greyrat]
-souls: [the-curious-traveller, dumpy, mayor-dumpy, dumplina]
+souls: [the-curious-traveller, dumpy, mayor-dumpy, dumplina, biff, renard]
 encountered: [goblin, bobbit, the-white-women]
 slain:
   - { creature: goblin, by: sir-nockturn, count: 2 }
@@ -16,6 +16,8 @@ quotes:
   - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often" }
   - { text: "Those fools going outside.", who: "Mayor Dumpy, bolting the door" }
   - { text: "Where… hope?", who: The white women }
+  - { text: "No sense in wasting good bobbit on a filthy Renard.", who: Biff }
+  - { text: "Well, it's gonna be like that is it?", who: "Biff, leaving in a huff" }
 ---
 
 Sir Nockturn was walking the road with a hedgehog on his surcoat and a golden sword on his mind when he met Pedium, a sorcerer who had been sent to help him. They did not get on. The knight is stupid but self-assured; the sorcerer is clever but grumpy. Neither saw any reason to hide it.
@@ -62,11 +64,32 @@ At that moment Dumplina discovered her bobbit had been in her bedroom all along.
 
 The bobbit had been alive when Rudious held it out. Afterwards, it was dead. We presume it was the white women. Dumplina wept softly.
 
-*To be continued.*
+We slept as well as we could for the rest of the night.
+
+## Into the fog
+
+In the morning Rudious made bobbit on toast and suggested, again, that we go forth and solve the mystery of the white women and the fog. Pedium tried to establish what our reward would be. The mayor explained that they were a poor people, and suggested we might like to do it for the experience. We all agreed.
+
+Three men were brought forth as our guides. We picked the fat one. His name was Biff.
+
+We loaded up with fresh gear, live bobbits and the blackened heart, and strode into adventure.
+
+## The fox in the trap
+
+After a little while Biff had us wait. He said he could hear something and wanted to check it out. He was gone for some time, so we followed him, and found him hunched over a fox caught in a trap, knife in hand, about to slit the poor creature's throat.
+
+Brian pulled him away by the scruff of his neck while the others set the fox free. When Pedium offered the fox one of our bobbits, Biff was outraged. "'Ere, wot you doing? No sense in wasting good bobbit on a filthy Renard."
+
+Nobody backed down. "Well, it's gonna be like that is it?" said Biff, and walked off in a huff.
+
+The company looked at the fox. They thought about the traveller on the road, and his friend Renard who needed looking after. They thought about the word Biff had used. And they pondered their next move.
+
+*Here the first adventure ends.*
 
 ## Loose threads
 
-- Who is Renard, and why does he need looking after?
+- Is the fox Renard, and why does he need looking after?
+- Where has Biff gone, and why was he so keen to kill a fox?
 - What happened to the old chef?
 - Why does the inn keep Sir [name to come]'s heart in a chest by the fire?
 - What are the white women looking for, and why did they flee from a bobbit?
