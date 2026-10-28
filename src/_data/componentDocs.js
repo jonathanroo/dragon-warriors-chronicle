@@ -259,7 +259,7 @@ export default [
           { name: "alt", type: "string", desc: "Describe the image. Required." },
         ],
         example: `{% from "components/portrait/portrait.njk" import portrait %}
-{{ portrait({ src: "/img/share.jpg", alt: "The site's title card" }) }}`,
+{{ portrait({ src: "/img/sir-nockturn.jpg", alt: "Sir Nockturn in plate armour and a hedgehog surcoat" }) }}`,
       },
       {
         name: "Photo",

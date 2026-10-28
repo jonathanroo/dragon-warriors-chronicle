@@ -2,6 +2,7 @@ import path from "node:path";
 import * as sass from "sass";
 import { HtmlBasePlugin, RenderPlugin } from "@11ty/eleventy";
 import tokens from "./src/_data/tokens.js";
+import shareCards from "./share-cards.js";
 
 const ORDINALS = [
   "Zeroth", "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh",
@@ -102,6 +103,7 @@ const FONTS = [
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
   eleventyConfig.addPlugin(RenderPlugin);
+  eleventyConfig.addPlugin(shareCards);
 
   // Sass: src/css/style.scss compiles to /css/style.css.
   // Partials live in src/_includes/scss and beside each component.

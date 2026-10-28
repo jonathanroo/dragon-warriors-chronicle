@@ -8,6 +8,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   {%- set pageTitle = title if (title and page.url != "/") else site.title %}
   {%- set pageDesc = summary or epithet or site.description %}
+  {#- What this page's share card says. See share-cards.js. -#}
+  {%- if page.url == "/" %}
+    {%- set latest = collections.sessions | last %}
+    {%- set count = collections.sessions.length %}
+    {%- set card = { kind: "home", tallies: [
+      { value: count, label: "entry" if count == 1 else "entries" },
+      { value: collections.company | whereNot("status", "dead") | length, label: "still standing" },
+      { value: collections.sessions | slainTotal, label: "foes slain" }
+    ], latest: latest.data.title if latest } %}
+  {%- elif session %}
+    {%- set card = { kind: "entry", slug: page.url, kicker: "Entry the " + (session | ordinal) + " · " + (date | readableDate), title: title, text: summary } %}
+  {%- elif profession or role or habitat %}
+    {%- set card = { kind: "person", slug: page.url, kicker: profession or role or kind, title: title, text: epithet or summary, portrait: portrait } %}
+  {%- else %}
+    {%- set n = collections.sessions.length %}
+    {%- set latest = collections.sessions | last %}
+    {%- set people = collections.souls.length %}
+    {%- set beasts = collections.bestiary.length %}
+    {%- set names %}{% for c in collections.company %}{{ c.data.title }}{{ ", " if not loop.last }}{% endfor %}{% endset %}
+    {%- set live = {
+      "/chronicle/": (n + (" entry" if n == 1 else " entries") + " so far. The latest: " + latest.data.title + ".") if latest,
+      "/company/": names + ".",
+      "/characters/": people + (" character" if people == 1 else " characters") + " and " + beasts + (" creature" if beasts == 1 else " creatures") + " met so far."
+    } %}
+    {%- set card = { kind: "page", slug: page.url, title: title, text: live[page.url] or site.description } %}
+  {%- endif %}
+  {%- set share = card | shareCard(site) %}
   <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
@@ -16,12 +43,12 @@
   <meta property="og:title" content="{{ pageTitle }}">
   <meta property="og:description" content="{{ pageDesc }}">
   <meta property="og:url" content="{{ site.url }}{{ page.url }}">
-  <meta property="og:image" content="{{ site.url }}/img/share.jpg">
-  <meta property="og:image:secure_url" content="{{ site.url }}/img/share.jpg">
-  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image" content="{{ site.url }}{{ share.url }}">
+  <meta property="og:image:secure_url" content="{{ site.url }}{{ share.url }}">
+  <meta property="og:image:type" content="image/png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{ site.title }}: the title in cream capitals over a dark red glow">
+  <meta property="og:image:alt" content="{{ share.alt }}">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="theme-color" content="#0d0b0a">

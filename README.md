@@ -150,5 +150,5 @@ src/
 
 - Fonts (EB Garamond, Uncial Antiqua, IM Fell English SC, Cinzel) are installed from npm and served from the site, so there are no third-party requests.
 - `src/_data/site.json` sets `url`, used for share previews. Change it if the address changes.
-- The share preview image is `src/img/share.jpg` (1200 × 630).
+- Every page gets its own share preview card (1200 × 630), drawn at build time by `share-cards.js` from the page's own data: the home page shows the live tallies and latest entry, entries their number, date and summary, characters and creatures their portrait. Cards are only redrawn when what they say changes.
 - The favicon is `src/img/favicon.png` (192 × 192), a Cinzel D on the masthead glow.
