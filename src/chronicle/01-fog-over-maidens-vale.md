@@ -18,18 +18,16 @@ photos:
     width: 1200
     height: 1600
     alt: "Four miniatures on a mottled play mat: an unpainted warrior with a great axe, an unpainted swordsman in a cloak, a small painted figure with a sword and a glowing orange shield, and a green-robed wizard with a staff."
-    caption: The company, in miniature.
   figures-on-the-map:
     src: /img/sessions/01/figures-on-the-map.jpg
     width: 1200
     height: 1600
     alt: "Close up of miniatures on a tiled floor plan: a woman in a long dress carrying a bucket, facing the green-robed wizard, with a player writing in the background."
-    caption: Figures on the map of the inn.
 quotes:
-  - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often" }
-  - { text: "Those fools going outside!", who: "Mayor Dumpy, bolting the door" }
-  - { text: "Where… hope?", who: The white women }
-  - { text: "No sense in wasting good bobbit on a filthy Renard.", who: Biff }
+  - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often", by: dumpy }
+  - { text: "Those fools going outside!", who: "Mayor Dumpy, bolting the door", by: mayor-dumpy }
+  - { text: "Where… hope?", who: The white women, by: the-white-women }
+  - { text: "No sense in wasting good bobbit on a filthy Renard.", who: Biff, by: biff }
 ---
 
 This adventure starts as many do: on a road with a strong, noble knight. Sir Nockturn was certainly dashing; his armour glinted in the late morning sun, and an impressive hedgehog emblem adorned his surcoat. He was just considering how handsome and truly magnificent he looked when a short man cut short his thoughts.
@@ -82,11 +80,7 @@ Inside, Dumpy introduced them to the mayor, whose name, it turned out, was also 
 
 The new chef was a man with a glint in his eye named Rudious Greyrat. He wiped his hands on his apron and admitted, with a wink, that the cooking was really a cover. He had only taken the job while he waited for adventurers to arrive, so that he could help solve the mystery of the fog and the strange goings-on in the village. He seemed delighted that some had finally turned up, even if one of them was singed.
 
-{% photo "the-company-in-miniature" %}
-
 Brian, meanwhile, had discovered the local bobbit ale.
-
-{% photo "figures-on-the-map" %}
 
 ## The legend
 

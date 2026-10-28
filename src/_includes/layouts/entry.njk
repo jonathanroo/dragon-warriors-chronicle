@@ -9,6 +9,7 @@ layout: layouts/base.njk
 {% from "components/cast/cast.njk" import cast, castGroup %}
 {% from "components/inline-links/inline-links.njk" import inlineLinks %}
 {% from "components/pager/pager.njk" import pager %}
+{% from "components/photo/photo.njk" import photo %}
 {% set scribeItem = collections.company | bySlug(scribe) if scribe %}
 {% set when %}<time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>{% endset %}
 {% set scribeLink %}{% if scribeItem %}<a href="{{ scribeItem.url }}">{{ scribeItem.data.title }}</a>{% endif %}{% endset %}
@@ -24,6 +25,14 @@ layout: layouts/base.njk
   }) }}
 
   {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
+
+  {% if photos %}
+  {% call section({ title: "Photos from the Night", id: "photos-h" }) %}
+    <div class="photo-grid">
+      {%- for name, p in photos %}{{ photo({ src: p.src, alt: p.alt, width: p.width, height: p.height }) }}{% endfor -%}
+    </div>
+  {% endcall %}
+  {% endif %}
 
   {% if slain and slain.length %}
   {% call section({ title: "The Tally of the Slain", id: "tally-h" }) %}
@@ -43,7 +52,11 @@ layout: layouts/base.njk
 
   {% if quotes and quotes.length %}
   {% call section({ title: "Overheard at the Table", id: "quotes-h" }) %}
-    {% for q in quotes %}{{ quote({ text: q.text, cite: q.who }) }}{% endfor %}
+    {% for q in quotes %}
+    {#- `by` is the speaker's slug, from the company, characters or creatures -#}
+    {% set speaker = (collections.company | bySlug(q.by)) or (collections.souls | bySlug(q.by)) or (collections.bestiary | bySlug(q.by)) if q.by %}
+    {{ quote({ text: q.text, cite: q.who, image: speaker.data.portrait if speaker, href: speaker.url if speaker }) }}
+    {% endfor %}
   {% endcall %}
   {% endif %}
 

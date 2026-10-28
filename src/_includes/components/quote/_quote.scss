@@ -15,5 +15,36 @@
     margin-top: 0.4rem;
     @include label-type;
     color: color(ink-soft);
+
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: color(rubric); text-decoration: underline; }
+  }
+
+  // With the speaker's portrait framed beside the words
+  &--portrait {
+    display: grid;
+    grid-template-columns: 6.5rem 1fr;
+    grid-template-rows: auto 1fr;
+    column-gap: space(sm);
+    align-items: start;
+
+    blockquote, figcaption { grid-column: 2; }
+  }
+
+  // Cropped in close on the face, like a cameo
+  &__image {
+    grid-row: 1 / span 2;
+    aspect-ratio: 1;
+    overflow: hidden;
+    border: 2px solid color(ink);
+    box-shadow: 2px 2px 0 color(ink);
+
+    img {
+      display: block;
+      width: 160%;
+      max-width: none;
+      margin: -8% 0 0 -30%;
+      filter: grayscale(1) contrast(1.15) sepia(0.25);
+    }
   }
 }

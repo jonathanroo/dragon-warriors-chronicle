@@ -134,20 +134,6 @@ export default function (eleventyConfig) {
   eleventyConfig.amendLibrary("njk", (env) => { njkEnv = env; });
   eleventyConfig.addFilter("renderNjk", (source) => njkEnv.renderString(source, {}));
 
-  // {% photo "the-table" %} in an entry renders the photo of that name from
-  // the entry's `photos` front matter, using the photo component.
-  eleventyConfig.addShortcode("photo", function (name) {
-    const photos = this.ctx?.photos || {};
-    const p = photos[name];
-    if (!p) throw new Error(`photo "${name}" is not in the photos front matter of ${this.page.inputPath}`);
-    const html = njkEnv.renderString(
-      '{% from "components/photo/photo.njk" import photo %}{{ photo(p) }}',
-      { p }
-    );
-    // One line, so Markdown treats it as a single HTML block
-    return html.replace(/\s*\n\s*/g, " ").trim();
-  });
-
   eleventyConfig.addTransform("smarten", function (content) {
     return (this.page.outputPath || "").endsWith(".html") ? smarten(content) : content;
   });

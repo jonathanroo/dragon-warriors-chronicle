@@ -51,7 +51,7 @@ slain:                                       # feeds every kill tally on the sit
   - { creature: skeleton, by: aldric, count: 2 }
   - { creature: giant-rat, by: morwen }       # count defaults to 1
 quotes:
-  - { text: "I'm not opening the coffin.", who: Grimbold }
+  - { text: "I'm not opening the coffin.", who: Grimbold, by: grimbold }   # by: optional slug, shows their portrait
 ---
 
 The entry itself, in Markdown. The first letter gets a drop cap.
@@ -61,7 +61,7 @@ The entry itself, in Markdown. The first letter gets a drop cap.
 
 ### Photos in an entry
 
-Put the images in `src/img/sessions/<number>/`, list them in the entry's front matter, and place each one in the story with a shortcode:
+Put the images in `src/img/sessions/<number>/` and list them in the entry's front matter. They appear side by side under Photos from the Night, after the story, toned to match the site.
 
 ```yaml
 photos:
@@ -70,11 +70,6 @@ photos:
     width: 1200
     height: 1600
     alt: Describe what's in the photo.
-    caption: The company, in miniature.
-```
-
-```md
-{% photo "the-company" %}
 ```
 
 Resize photos to about 1600px on the long side and strip their metadata first: phone photos carry the location they were taken.

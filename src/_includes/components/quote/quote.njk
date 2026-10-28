@@ -2,10 +2,13 @@
   A line overheard at the table.
   p.text  the words, without quotation marks
   p.cite  who said it
+  p.image  optional portrait of the speaker, beside the words
+  p.href   optional link for the name
 -#}
 {% macro quote(p) %}
-<figure class="quote">
+<figure class="quote{% if p.image %} quote--portrait{% endif %}">
+  {% if p.image %}<span class="quote__image"><img src="{{ p.image }}" alt="" loading="lazy"></span>{% endif %}
   <blockquote><p>{{ p.text }}</p></blockquote>
-  {% if p.cite %}<figcaption>{{ p.cite }}</figcaption>{% endif %}
+  {% if p.cite %}<figcaption>{% if p.href %}<a href="{{ p.href }}">{{ p.cite }}</a>{% else %}{{ p.cite }}{% endif %}</figcaption>{% endif %}
 </figure>
 {% endmacro %}

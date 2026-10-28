@@ -104,9 +104,12 @@ export default [
         params: [
           { name: "text", type: "string", desc: "The words, without quotation marks." },
           { name: "cite", type: "string", desc: "Who said it." },
+          { name: "image", type: "string", desc: "Optional portrait of the speaker, shown beside the words." },
+          { name: "href", type: "string", desc: "Optional link for the name." },
         ],
         example: `{% from "components/quote/quote.njk" import quote %}
-{{ quote({ text: "Dumpy is as Dumpy does.", cite: "Dumpy, often" }) }}`,
+{{ quote({ text: "Dumpy is as Dumpy does.", cite: "Dumpy, often", image: "/img/dumpy.jpg", href: "#" }) }}
+{{ quote({ text: "Where… hope?", cite: "The white women" }) }}`,
       },
       {
         name: "Session list",
@@ -262,7 +265,7 @@ export default [
         name: "Photo",
         slug: "photo",
         macro: "photo",
-        description: "A photograph from the table, in full colour, mounted like a print. Tall photos are narrowed so they don't swamp the column. In an entry, list photos in the front matter and place them with the shortcode {% photo \"name\" %}.",
+        description: "A photograph from the table, toned in ink and parchment so it sits with the rest of the page, and mounted like a print. In an entry, list photos in the front matter and they appear side by side under Photos from the Night.",
         params: [
           { name: "src", type: "string", desc: "Image path." },
           { name: "alt", type: "string", desc: "Describe the image. Required." },
@@ -273,8 +276,7 @@ export default [
 {{ photo({
   src: "/img/sessions/01/the-company-in-miniature.jpg",
   width: 1200, height: 1600,
-  alt: "Four miniatures on a mottled play mat: a warrior with a great axe, a cloaked swordsman, a small figure with a glowing shield and a green-robed wizard.",
-  caption: "The company, in miniature."
+  alt: "Four miniatures on a mottled play mat: a warrior with a great axe, a cloaked swordsman, a small figure with a glowing shield and a green-robed wizard."
 }) }}`,
       },
     ],

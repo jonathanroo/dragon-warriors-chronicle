@@ -1,15 +1,15 @@
 {#-
-  A photograph from the table, in full colour, mounted like a print.
+  A photograph from the table, toned in ink and parchment, mounted like a print.
   p.src      image path
   p.alt      describe the image (required)
   p.caption  optional caption
   p.width, p.height  intrinsic size, so the page doesn't jump as it loads
-  In an entry, use the shortcode instead: {% photo "the-company" %}, which
-  looks the photo up in the entry's photos front matter.
+  In an entry, list photos in the front matter and they appear under
+  Photos from the Night, after the story.
 -#}
 {% macro photo(p) %}
 <figure class="photo{% if p.height > p.width %} photo--portrait{% endif %}">
-  <img src="{{ p.src }}" alt="{{ p.alt }}"{% if p.width %} width="{{ p.width }}" height="{{ p.height }}"{% endif %} loading="lazy" decoding="async">
+  <span class="photo__print"><img src="{{ p.src }}" alt="{{ p.alt }}"{% if p.width %} width="{{ p.width }}" height="{{ p.height }}"{% endif %} loading="lazy" decoding="async"></span>
   {% if p.caption %}<figcaption>{{ p.caption }}</figcaption>{% endif %}
 </figure>
 {% endmacro %}
