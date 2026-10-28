@@ -271,10 +271,10 @@ export default [
         ],
         example: `{% from "components/photo/photo.njk" import photo %}
 {{ photo({
-  src: "/img/sessions/01/the-table.jpg",
-  width: 1600, height: 1200,
-  alt: "Four players around a table covered with character sheets, dice and a printed dungeon map.",
-  caption: "Around the table, 27 October 2026."
+  src: "/img/sessions/01/the-company-in-miniature.jpg",
+  width: 1200, height: 1600,
+  alt: "Four miniatures on a mottled play mat: a warrior with a great axe, a cloaked swordsman, a small figure with a glowing shield and a green-robed wizard.",
+  caption: "The company, in miniature."
 }) }}`,
       },
     ],

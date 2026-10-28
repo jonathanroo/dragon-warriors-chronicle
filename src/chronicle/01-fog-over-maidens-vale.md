@@ -13,12 +13,6 @@ slain:
   - { creature: goblin, by: pedium, count: 1 }
   - { creature: goblin, by: brian-enorath, count: 1 }
 photos:
-  the-table:
-    src: /img/sessions/01/the-table.jpg
-    width: 1600
-    height: 1200
-    alt: Four players around a dining table covered with character sheets, dice trays, crisps, cans of drink and a printed dungeon map with miniatures on it.
-    caption: Around the table, 27 October 2026.
   the-company-in-miniature:
     src: /img/sessions/01/the-company-in-miniature.jpg
     width: 1200
@@ -163,8 +157,6 @@ The company looked at the fox. They thought about the traveller on the road, and
 And they pondered their next move.
 
 *Here the first adventure ends.*
-
-{% photo "the-table" %}
 
 ## Loose threads
 

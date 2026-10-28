@@ -65,16 +65,16 @@ Put the images in `src/img/sessions/<number>/`, list them in the entry's front m
 
 ```yaml
 photos:
-  the-table:
-    src: /img/sessions/01/the-table.jpg
-    width: 1600
-    height: 1200
+  the-company:
+    src: /img/sessions/01/the-company-in-miniature.jpg
+    width: 1200
+    height: 1600
     alt: Describe what's in the photo.
-    caption: Around the table, 27 October 2026.
+    caption: The company, in miniature.
 ```
 
 ```md
-{% photo "the-table" %}
+{% photo "the-company" %}
 ```
 
 Resize photos to about 1600px on the long side and strip their metadata first: phone photos carry the location they were taken.
