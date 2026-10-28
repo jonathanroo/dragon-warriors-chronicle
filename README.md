@@ -59,6 +59,26 @@ The entry itself, in Markdown. The first letter gets a drop cap.
 ## Use level-two headings for scenes
 ```
 
+### Photos in an entry
+
+Put the images in `src/img/sessions/<number>/`, list them in the entry's front matter, and place each one in the story with a shortcode:
+
+```yaml
+photos:
+  the-table:
+    src: /img/sessions/01/the-table.jpg
+    width: 1600
+    height: 1200
+    alt: Describe what's in the photo.
+    caption: Around the table, 27 October 2026.
+```
+
+```md
+{% photo "the-table" %}
+```
+
+Resize photos to about 1600px on the long side and strip their metadata first: phone photos carry the location they were taken.
+
 ### A character: `src/company/`
 
 ```yaml

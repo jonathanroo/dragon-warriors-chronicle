@@ -12,6 +12,25 @@ slain:
   - { creature: goblin, by: sir-nockturn, count: 2 }
   - { creature: goblin, by: pedium, count: 1 }
   - { creature: goblin, by: brian-enorath, count: 1 }
+photos:
+  the-table:
+    src: /img/sessions/01/the-table.jpg
+    width: 1600
+    height: 1200
+    alt: Four players around a dining table covered with character sheets, dice trays, crisps, cans of drink and a printed dungeon map with miniatures on it.
+    caption: Around the table, 27 October 2026.
+  the-company-in-miniature:
+    src: /img/sessions/01/the-company-in-miniature.jpg
+    width: 1200
+    height: 1600
+    alt: "Four miniatures on a mottled play mat: an unpainted warrior with a great axe, an unpainted swordsman in a cloak, a small painted figure with a sword and a glowing orange shield, and a green-robed wizard with a staff."
+    caption: The company, in miniature.
+  figures-on-the-map:
+    src: /img/sessions/01/figures-on-the-map.jpg
+    width: 1200
+    height: 1600
+    alt: "Close up of miniatures on a tiled floor plan: a woman in a long dress carrying a bucket, facing the green-robed wizard, with a player writing in the background."
+    caption: Figures on the map of the inn.
 quotes:
   - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often" }
   - { text: "Those fools going outside!", who: "Mayor Dumpy, bolting the door" }
@@ -69,7 +88,11 @@ Inside, Dumpy introduced them to the mayor, whose name, it turned out, was also 
 
 The new chef was a man with a glint in his eye named Rudious Greyrat. He wiped his hands on his apron and admitted, with a wink, that the cooking was really a cover. He had only taken the job while he waited for adventurers to arrive, so that he could help solve the mystery of the fog and the strange goings-on in the village. He seemed delighted that some had finally turned up, even if one of them was singed.
 
+{% photo "the-company-in-miniature" %}
+
 Brian, meanwhile, had discovered the local bobbit ale.
+
+{% photo "figures-on-the-map" %}
 
 ## The legend
 
@@ -140,6 +163,8 @@ The company looked at the fox. They thought about the traveller on the road, and
 And they pondered their next move.
 
 *Here the first adventure ends.*
+
+{% photo "the-table" %}
 
 ## Loose threads
 

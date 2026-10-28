@@ -258,6 +258,25 @@ export default [
         example: `{% from "components/portrait/portrait.njk" import portrait %}
 {{ portrait({ src: "/img/share.jpg", alt: "The site's title card" }) }}`,
       },
+      {
+        name: "Photo",
+        slug: "photo",
+        macro: "photo",
+        description: "A photograph from the table, in full colour, mounted like a print. Tall photos are narrowed so they don't swamp the column. In an entry, list photos in the front matter and place them with the shortcode {% photo \"name\" %}.",
+        params: [
+          { name: "src", type: "string", desc: "Image path." },
+          { name: "alt", type: "string", desc: "Describe the image. Required." },
+          { name: "caption", type: "string", desc: "Optional caption." },
+          { name: "width, height", type: "number", desc: "Intrinsic size, so the page doesn't jump as the image loads." },
+        ],
+        example: `{% from "components/photo/photo.njk" import photo %}
+{{ photo({
+  src: "/img/sessions/01/the-table.jpg",
+  width: 1600, height: 1200,
+  alt: "Four players around a table covered with character sheets, dice and a printed dungeon map.",
+  caption: "Around the table, 27 October 2026."
+}) }}`,
+      },
     ],
   },
   {

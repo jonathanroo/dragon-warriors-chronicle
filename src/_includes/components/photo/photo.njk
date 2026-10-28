@@ -1,0 +1,15 @@
+{#-
+  A photograph from the table, in full colour, mounted like a print.
+  p.src      image path
+  p.alt      describe the image (required)
+  p.caption  optional caption
+  p.width, p.height  intrinsic size, so the page doesn't jump as it loads
+  In an entry, use the shortcode instead: {% photo "the-table" %}, which
+  looks the photo up in the entry's photos front matter.
+-#}
+{% macro photo(p) %}
+<figure class="photo{% if p.height > p.width %} photo--portrait{% endif %}">
+  <img src="{{ p.src }}" alt="{{ p.alt }}"{% if p.width %} width="{{ p.width }}" height="{{ p.height }}"{% endif %} loading="lazy" decoding="async">
+  {% if p.caption %}<figcaption>{{ p.caption }}</figcaption>{% endif %}
+</figure>
+{% endmacro %}

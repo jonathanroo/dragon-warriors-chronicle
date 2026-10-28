@@ -1,0 +1,28 @@
+@use "scss/settings" as *;
+
+.photo {
+  margin: space(xl) auto;
+  padding: 8px 8px 0;
+  background: color(parchment-light);
+  border: 1px solid color(ink);
+  box-shadow: 4px 4px 0 color(ink);
+
+  img {
+    display: block;
+    width: 100%;
+    height: auto;
+    border: 1px solid color(line);
+  }
+
+  figcaption {
+    padding: space(2xs) space(3xs) space(xs);
+    font-size: size(md);
+    font-style: italic;
+    text-align: center;
+    text-indent: 0;
+    color: color(ink-soft);
+  }
+
+  // Tall photos would swamp the column
+  &--portrait { max-width: 24rem; }
+}
