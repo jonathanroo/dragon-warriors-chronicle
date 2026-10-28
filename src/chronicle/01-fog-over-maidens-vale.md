@@ -5,12 +5,12 @@ date: 2026-10-27
 location: The road to Maiden's Vale, and the inn
 days: 1
 summary: A knight, a sorcerer and a barbarian meet over four dead goblins, follow a singed villager into a fog-bound village, and are visited in the night by the white women.
-company: [sir-nockturn, the-sorcerer, brian-enorath, rudious-greyrat]
+company: [sir-nockturn, pedium, brian-enorath, rudious-greyrat]
 souls: [the-curious-traveller, dumpy, mayor-dumpy, dumplina]
 encountered: [goblin, bobbit, the-white-women]
 slain:
   - { creature: goblin, by: sir-nockturn, count: 2 }
-  - { creature: goblin, by: the-sorcerer, count: 1 }
+  - { creature: goblin, by: pedium, count: 1 }
   - { creature: goblin, by: brian-enorath, count: 1 }
 quotes:
   - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often" }
@@ -18,7 +18,7 @@ quotes:
   - { text: "Where… hope?", who: The white women }
 ---
 
-Sir Nockturn was walking the road with a hedgehog on his surcoat and a golden sword on his mind when he met the sorcerer who had been sent to help him. They did not get on. The knight is stupid but self-assured; the sorcerer is clever but grumpy. Neither saw any reason to hide it.
+Sir Nockturn was walking the road with a hedgehog on his surcoat and a golden sword on his mind when he met Pedium, a sorcerer who had been sent to help him. They did not get on. The knight is stupid but self-assured; the sorcerer is clever but grumpy. Neither saw any reason to hide it.
 
 There were many people on the road that day, but only one stopped to ask who they were and why they had come. He spoke much like several other people we would meet. Before he went on his way, he asked that if we ever came across his friend Renard, we would look after him.
 
