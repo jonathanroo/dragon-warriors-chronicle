@@ -1,7 +1,9 @@
 @use "scss/settings" as *;
 
 .session-list {
-  margin: 0;
+  // Top and bottom only, so the page column can still centre it
+  margin-top: 0;
+  margin-bottom: 0;
   padding: 0;
   list-style: none;
 
@@ -14,30 +16,51 @@
     color: color(rubric);
   }
 
+  // Each entry a centred chapter block, a diamond between them
   &--contents {
-    li {
-      display: grid;
-      grid-template-columns: 3rem 1fr;
-      gap: space(2xs);
-      margin: 0;
-      padding: space(sm) 0;
-      border-bottom: 1px solid color(line);
+    text-align: center;
 
-      &:first-child { @include double-rule(top); }
+    li { margin: 0; }
+
+    li + li::before {
+      @include diamond(0.5rem);
+      display: block;
+      margin: space(xl) auto;
     }
 
-    .session-list__num { font-size: 1.4rem; line-height: 1.3; text-align: center; }
-    p { margin: 0.4rem 0 0; }
+    .session-list__title { font-size: clamp(1.6rem, 1.3rem + 1.2vw, 2.1rem); }
+    .session-list__when { margin: 0.3rem 0 0; }
   }
+
+  &__kicker {
+    margin: 0;
+    @include label-type(1rem);
+    color: color(rubric);
+  }
+
+  // Doubled up so page-level heading margins, like the design system's, don't win
+  & &__heading { margin: 0.1em 0 0; font-size: inherit; }
 
   &__title {
     font-family: font(display);
     font-size: 1.35rem;
-    line-height: 1.25;
+    line-height: 1.2;
     text-decoration: none;
 
     &:hover { text-decoration: underline; }
   }
 
   &__when { display: block; font-size: 0.95rem; font-style: italic; color: color(ink-faint); }
+
+  &__summary {
+    max-width: 34rem;
+    margin: space(sm) auto 0;
+    text-wrap: pretty;
+  }
+
+  &__more {
+    margin: space(xs) 0 0;
+
+    a { @include label-type(1rem); }
+  }
 }

@@ -48,7 +48,7 @@ summary: The tokens, type and Nunjucks components behind Dilemma for his Dragon.
 
     <section aria-labelledby="ds-colour">
       <h2 id="ds-colour">Colour</h2>
-      <p>Iron gall ink and one red, the rubric a scribe used for headings and initials, on aged paper. Contrast is measured against the page background and the raised surface.</p>
+      <p>Iron gall ink and one red, the rubric a scribe used for headings and initials, on aged paper. Above it all, the masthead glows: char black lit red from below, after the Dragon Warriors cover. Contrast is measured against the page background and the raised surface.</p>
       <ul class="ds-swatches">
         {%- for c in tokens.colors %}
         <li class="ds-swatch">
@@ -69,10 +69,10 @@ summary: The tokens, type and Nunjucks components behind Dilemma for his Dragon.
 
     <section aria-labelledby="ds-type">
       <h2 id="ds-type">Typography</h2>
-      <p>Three typefaces, all served from the site itself.</p>
+      <p>Four typefaces, all served from the site itself.</p>
       {%- for f in tokens.fonts %}
       <div class="ds-font">
-        <p class="ds-font__sample" style="font-family: var(--font-{{ f.name }})">{% if f.name == "display" %}Fog over Maiden's Vale{% elif f.name == "label" %}Entry the First · The Company{% else %}Dumpy led us to his village as the mist thickened into fog. <em>Dumpy is as Dumpy does.</em>{% endif %}</p>
+        <p class="ds-font__sample" style="font-family: var(--font-{{ f.name }})">{% if f.name == "display" %}Fog over Maiden's Vale{% elif f.name == "label" %}Entry the First · The Company{% elif f.name == "roman" %}Dilemma for his Dragon{% else %}Dumpy led us to his village as the mist thickened into fog. <em>Dumpy is as Dumpy does.</em>{% endif %}</p>
         <p class="ds-font__meta"><strong>{{ f.family }}</strong> · <code>--font-{{ f.name }}</code> · {{ f.role }}</p>
       </div>
       {%- endfor %}

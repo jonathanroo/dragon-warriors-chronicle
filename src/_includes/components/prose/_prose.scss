@@ -1,13 +1,31 @@
 @use "scss/settings" as *;
 
 .prose {
+  margin-bottom: space(md);
+
+  // Set like a book: no gap between paragraphs, each one after the
+  // first indented. A paragraph after a heading, list or quote starts flush.
+  p {
+    margin: 0;
+    text-wrap: pretty;
+    hanging-punctuation: first; // opening quotes sit in the margin (Safari)
+  }
+
+  p + p { text-indent: 1.5em; }
+
+  ul, ol, blockquote { margin-top: space(sm); margin-bottom: space(sm); }
+
+  // Hyphenate on narrow screens, where a ragged edge is at its worst
+  @media (max-width: 40rem) {
+    p { hyphens: auto; }
+  }
+
   h2 {
     font-size: size(xl);
     &::before { @include diamond; margin-right: 0.5em; vertical-align: 0.15em; }
   }
 
   blockquote {
-    margin: space(md) 0;
     padding-left: 1.25rem;
     border-left: 3px double color(rubric);
     font-style: italic;
@@ -27,5 +45,11 @@
       3px 3px 0 color(ink),
       inset 0 0 0 3px color(parchment-light),
       inset 0 0 0 4px color(ink);
+  }
+
+  // The rest of the opening line in small capitals, as books begin a chapter
+  &--dropcap > p:first-child::first-line {
+    font-family: font(label);
+    letter-spacing: 0.04em;
   }
 }

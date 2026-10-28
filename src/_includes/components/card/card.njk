@@ -6,9 +6,11 @@
   p.body   short description
   p.foot   small italic footnote
   p.muted  true for the dead
+  p.image  optional picture across the top, cropped square. Decorative: the title names it.
 -#}
 {% macro card(p) %}
-<li class="card{% if p.muted %} card--muted{% endif %}">
+<li class="card{% if p.muted %} card--muted{% endif %}{% if p.image %} card--image{% endif %}">
+  {% if p.image %}<img class="card__image" src="{{ p.image }}" alt="" loading="lazy">{% endif %}
   <a class="card__title" href="{{ p.href }}">{{ p.title }}</a>
   {% if p.sub %}<span class="card__sub">{{ p.sub }}</span>{% endif %}
   {% if p.body %}<p class="card__body">{{ p.body }}</p>{% endif %}

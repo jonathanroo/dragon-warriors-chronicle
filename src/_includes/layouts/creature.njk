@@ -3,6 +3,7 @@ layout: layouts/base.njk
 ---
 {% from "components/page-header/page-header.njk" import pageHeader %}
 {% from "components/prose/prose.njk" import prose %}
+{% from "components/portrait/portrait.njk" import portrait as portraitFigure %}
 {% from "components/section/section.njk" import section %}
 {% from "components/session-list/session-list.njk" import sessionList %}
 {% from "components/tally/tally.njk" import tally %}
@@ -16,6 +17,8 @@ layout: layouts/base.njk
   }) %}
     {% if kills.length %}{{ tally({ value: kills | total, label: "slain by the company" }) }}{% endif %}
   {% endcall %}
+
+  {{ portraitFigure({ src: portrait, alt: portraitAlt or ("Portrait of " + title) }) }}
 
   {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
 

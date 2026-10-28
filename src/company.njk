@@ -8,11 +8,11 @@ permalink: /company/
 {% from "components/card/card.njk" import card, cardGrid %}
 {% set living = collections.company | whereNot("status", "dead") %}
 {% set fallen = collections.company | where("status", "dead") %}
-{{ pageHeader({ kicker: "Those who ride together", title: title }) }}
+{{ pageHeader({ title: title }) }}
 
 {% call cardGrid() %}
   {% for c in living %}
-  {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epithet, foot: ("Played by " + c.data.player) if c.data.player }) }}
+  {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epithet, foot: ("Played by " + c.data.player) if c.data.player, image: c.data.portrait }) }}
   {% endfor %}
 {% endcall %}
 
@@ -20,7 +20,7 @@ permalink: /company/
 {% call section({ title: "The Fallen", id: "fallen-h", wide: true }) %}
   {% call cardGrid() %}
     {% for c in fallen %}
-    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epitaph, muted: true }) }}
+    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epitaph, muted: true, image: c.data.portrait }) }}
     {% endfor %}
   {% endcall %}
 {% endcall %}

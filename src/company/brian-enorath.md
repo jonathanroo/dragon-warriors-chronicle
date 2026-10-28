@@ -3,6 +3,8 @@ title: Brian Enorath
 profession: Barbarian
 player: Jon
 epithet: A barbarian from a village of idiots, raised by peace-loving wannabe druids, still trying to get the durge organ out of his head.
+portrait: /img/brian-enorath.jpg
+portraitAlt: "Brian Enorath in furs and a necklace of teeth, a great blade over his shoulder, looking pained"
 ---
 
 Brian Enorath was born in Ogg, a tiny village in South Emphidor. Ogg is exactly what you'd expect a barbarian village to be: packed with nutters in loincloths, dragging their knuckles and scrapping over rocks. Everyone is an idiot.

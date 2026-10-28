@@ -5,5 +5,5 @@ permalink: /chronicle/
 ---
 {% from "components/page-header/page-header.njk" import pageHeader %}
 {% from "components/session-list/session-list.njk" import sessionList %}
-{{ pageHeader({ kicker: "Every session, in the order it befell us", title: title }) }}
+{{ pageHeader({ title: title }) }}
 {{ sessionList(collections.sessions, { variant: "contents" }) }}

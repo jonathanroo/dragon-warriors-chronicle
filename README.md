@@ -76,6 +76,10 @@ portraitAlt: Sir Nockturn in his surcoat   # describe the image
 
 The character page lists every session they appeared in and everything they killed, worked out from the session files.
 
+### Characters and creatures
+
+Non-player characters and creatures share one section, Characters and Creatures, at `/characters/`. Their files live in two folders, because they record different things.
+
 ### A creature: `src/bestiary/`
 
 ```yaml
@@ -84,10 +88,12 @@ title: Skeleton
 kind: Undead
 habitat: Churchyards and crypts
 summary: One line.
+portrait: /img/skeleton.jpg      # optional, as for characters
+portraitAlt: A skeleton in a rusted helm
 ---
 ```
 
-### An NPC: `src/souls/`
+### A character (NPC): `src/souls/`
 
 ```yaml
 ---
@@ -98,6 +104,8 @@ location: The Drowned Lamb
 status: alive            # alive, dead or missing
 opinion: The company's current view of them.
 summary: One line for the listing.
+portrait: /img/brother-anselm.jpg   # optional, as for characters
+portraitAlt: Brother Anselm counting coins
 ---
 ```
 
@@ -125,7 +133,7 @@ src/
 
 ## Other notes
 
-- Fonts (EB Garamond, Uncial Antiqua, IM Fell English SC) are installed from npm and served from the site, so there are no third-party requests.
+- Fonts (EB Garamond, Uncial Antiqua, IM Fell English SC, Cinzel) are installed from npm and served from the site, so there are no third-party requests.
 - `src/_data/site.json` sets `url`, used for share previews. Change it if the address changes.
 - The share preview image is `src/img/share.jpg` (1200 × 630).
-- The emblem is `src/_includes/emblem.svg`. The favicon copy is `src/img/emblem.svg`.
+- The favicon is `src/img/favicon.png` (192 × 192), a Cinzel D on the masthead glow.

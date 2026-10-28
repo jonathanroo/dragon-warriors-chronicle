@@ -5,6 +5,8 @@ role: Villager of Maiden's Vale
 location: Maiden's Vale
 opinion: Harmless, and slightly singed.
 summary: Dumpy is as Dumpy does.
+portrait: /img/dumpy.jpg
+portraitAlt: "Dumpy in scorched, patched clothes, clutching his cap, with smoke rising from his hair"
 ---
 
 Found cowering on the road during the goblin fight, where the sorcerer accidentally set fire to him. He never noticed, and the company has not mentioned it. He led them to the village as darkness and fog came down, desperate to get indoors, and talks up the inn's new chef while staying vague about the old one.

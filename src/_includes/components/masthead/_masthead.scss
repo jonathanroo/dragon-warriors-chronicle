@@ -1,69 +1,161 @@
 @use "scss/settings" as *;
 
+$faded: rgb(244 234 210 / 0.68); // parchment-light, dimmed for the dark band
+$ember-line: rgb(240 160 64 / 0.4);
+$grain: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.2 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+
 .masthead {
-  max-width: width(wide);
-  margin: 0 auto;
-  padding: clamp(1.5rem, 4vw, 2.75rem) var(--gutter) 0;
-  text-align: center;
+  background: color(char);
+  color: color(parchment-light);
+  border-bottom: 1px solid $ember-line;
+
+  &__strip {
+    margin: 0;
+    padding: 0.5rem var(--gutter) 0;
+    @include label-type(0.8rem);
+    letter-spacing: 0.14em;
+    text-align: center;
+    color: $faded;
+  }
+
+  // A faint red glow from below, as if from a fire out of sight.
+  // The grain keeps the gradient from banding.
+  &__glow {
+    padding: clamp(1.5rem, 4.5vw, 2.75rem) var(--gutter) clamp(1.5rem, 4vw, 2.25rem);
+    text-align: center;
+    background:
+      $grain,
+      radial-gradient(ellipse 70% 90% at 50% 120%, rgb(168 41 13 / 0.45) 0%, rgb(110 21 9 / 0.2) 50%, rgb(110 21 9 / 0) 100%),
+      color(char);
+  }
 
   &__brand {
     display: inline-flex;
     flex-direction: column;
     align-items: center;
-    gap: space(2xs);
-    color: color(ink);
+    gap: space(xs);
+    color: color(parchment-light);
     text-decoration: none;
 
-    &:hover { color: color(ink); }
+    &:hover { color: color(parchment-light); }
+    &:hover .masthead__title small { color: color(parchment-light); }
+    &:focus-visible { outline-color: color(ember); background: none; }
   }
 
-  .emblem { width: 3.25rem; height: auto; color: color(ink); }
-
   &__title {
-    font-family: font(display);
-    font-size: clamp(1.9rem, 1.2rem + 3.5vw, 3.6rem);
-    line-height: 1.15;
-    text-wrap: balance;
-    letter-spacing: 0.02em;
+    font-family: font(roman);
+    font-weight: 900;
+    font-size: clamp(2.1rem, 1.5rem + 3.2vw, 3.5rem);
+    line-height: 1.05;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    text-shadow: 0 2px 0 color(char), 0 0 0.8em rgb(0 0 0 / 0.6);
+
+    span, small { display: block; }
+
+    small {
+      margin: 0.15em 0 0.2em;
+      font-size: 0.4em;
+      letter-spacing: 0.14em;
+      color: color(ember);
+      transition: color 0.2s;
+    }
   }
 
   &__sub {
-    max-width: 30ch;
+    max-width: 34ch;
     font-style: italic;
-    font-size: 0.95em;
-    color: color(ink-soft);
+    font-size: 1.05em;
+    line-height: 1.4;
+    text-wrap: balance;
+    color: $faded;
   }
 
   &__nav {
-    margin-top: space(md);
-
     ul {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
       gap: space(3xs) 0;
-      margin: 0;
-      padding: space(2xs) 0;
+      max-width: width(wide);
+      margin: 0 auto;
+      padding: space(3xs) var(--gutter) space(2xs);
       list-style: none;
-      @include double-rule;
     }
 
     li { display: flex; align-items: center; margin: 0; }
-    li + li::before { @include diamond(0.4rem); margin: 0 space(xs); }
+    li + li::before { @include diamond(0.35rem, color(flame)); margin: 0 space(xs); }
 
     a {
       display: inline-block;
       padding: 0.35rem 0.1rem;
-      @include label-type(1.05rem);
-      color: color(ink);
+      @include label-type(1rem);
+      color: $faded;
       text-decoration: none;
 
-      &:hover { color: color(rubric); }
+      &:hover { color: color(parchment-light); }
+      &:focus-visible { outline-color: color(ember); background: none; }
       &[aria-current] {
-        color: color(rubric);
-        text-decoration: underline 2px;
-        text-underline-offset: 0.3em;
+        color: color(ember);
+        text-decoration: underline 1px;
+        text-underline-offset: 0.35em;
       }
     }
+  }
+
+  // Every page but the home page: one slim bar, title and nav side by side
+  &--compact {
+    .masthead__glow {
+      padding: space(3xs) var(--gutter);
+      background:
+        $grain,
+        radial-gradient(ellipse 60% 140% at 50% 160%, rgb(168 41 13 / 0.35) 0%, rgb(110 21 9 / 0) 100%),
+        color(char);
+    }
+
+    .masthead__inner {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      max-width: width(wide);
+      margin: 0 auto;
+
+      // Side by side from the width where the title and nav fit on one line
+      @media (min-width: 44rem) {
+        flex-direction: row;
+        justify-content: space-between;
+        gap: space(sm);
+
+        .masthead__nav { flex-shrink: 0; }
+        .masthead__nav ul { flex-wrap: nowrap; }
+      }
+    }
+
+    .masthead__title {
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+      white-space: nowrap;
+      text-shadow: none;
+
+      span, small { display: inline; }
+      small { margin: 0 0.15em; font-size: 0.6em; vertical-align: 0.12em; }
+    }
+
+    .masthead__nav {
+      ul { padding: 0; }
+      li + li::before { width: 0.3rem; height: 0.3rem; margin: 0 space(2xs); }
+      a { padding: 0.2rem 0; font-size: 0.88rem; white-space: nowrap; }
+
+      @media (max-width: 30rem) {
+        li + li::before { margin: 0 0.3rem; }
+        a { font-size: 0.78rem; letter-spacing: 0.02em; }
+      }
+    }
+  }
+
+  @media (max-width: 30rem) {
+    &__strip { font-size: 0.74rem; letter-spacing: 0.06em; }
+    &__nav li + li::before { margin: 0 space(2xs); }
+    &__nav a { font-size: 0.92rem; }
   }
 }

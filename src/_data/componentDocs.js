@@ -9,19 +9,22 @@ export default [
         name: "Masthead",
         slug: "masthead",
         macro: "masthead",
-        description: "Emblem, site title, subtitle and the section navigation. The current section is underlined and marked with aria-current.",
+        description: "The series strip, the site title over a red glow, the subtitle and the section navigation. The current section is underlined and marked with aria-current.",
         params: [
-          { name: "site", type: "object", desc: "Site data: title, subtitle and nav." },
+          { name: "site", type: "object", desc: "Site data: title, subtitle, nav, and optionally tagline and titleLines (the title split for the stacked lockup, middle line small)." },
           { name: "currentUrl", type: "string", desc: "The page URL, to mark the current section." },
+          { name: "compact", type: "boolean", desc: "A slim bar with just the title and nav, for every page but the home page." },
         ],
         example: `{% from "components/masthead/masthead.njk" import masthead %}
 {{ masthead({
   site: {
     title: "Dilemma for his Dragon",
+    titleLines: ["Dilemma", "for his", "Dragon"],
     subtitle: "Being a true account of our wanderings",
+    tagline: "The chronicle of a Dragon Warriors campaign",
     nav: [
       { label: "The Chronicle", url: "/chronicle/" },
-      { label: "Bestiary", url: "/bestiary/" }
+      { label: "Characters and Creatures", url: "/characters/" }
     ]
   },
   currentUrl: "/chronicle/"
@@ -109,7 +112,7 @@ export default [
         name: "Session list",
         slug: "session-list",
         macro: "sessionList",
-        description: "Sessions numbered in Roman numerals. The contents variant adds the date, place and summary, and is used on The Chronicle.",
+        description: "Sessions in order of play. The compact variant numbers them in Roman numerals; the contents variant sets each as a centred chapter block with the date, place and summary, and is used on The Chronicle.",
         params: [
           { name: "sessions", type: "collection", desc: "Items with data.session and data.title." },
           { name: "variant", type: "compact | contents", desc: "Defaults to compact." },
@@ -185,10 +188,11 @@ export default [
           { name: "body", type: "string", desc: "Short description." },
           { name: "foot", type: "string", desc: "Italic footnote." },
           { name: "muted", type: "boolean", desc: "Faded, for the dead." },
+          { name: "image", type: "string", desc: "Picture across the top, cropped square and toned like a portrait." },
         ],
         example: `{% from "components/card/card.njk" import card, cardGrid %}
 {% call cardGrid() %}
-  {{ card({ title: "Brian Enorath", href: "#", sub: "Barbarian", body: "Raised by peace-loving wannabe druids.", foot: "Played by Jon" }) }}
+  {{ card({ title: "Brian Enorath", href: "#", sub: "Barbarian", body: "Raised by peace-loving wannabe druids.", foot: "Played by Jon", image: "/img/brian-enorath.jpg" }) }}
   {{ card({ title: "Sir Example", href: "#", sub: "Knight", body: "Muted, as on The Fallen.", muted: true }) }}
 {% endcall %}`,
       },

@@ -3,6 +3,7 @@ layout: layouts/base.njk
 ---
 {% from "components/page-header/page-header.njk" import pageHeader %}
 {% from "components/prose/prose.njk" import prose %}
+{% from "components/portrait/portrait.njk" import portrait as portraitFigure %}
 {% from "components/section/section.njk" import section %}
 {% from "components/session-list/session-list.njk" import sessionList %}
 {% set met = collections.sessions | mentioning("souls", page.fileSlug) %}
@@ -19,6 +20,8 @@ layout: layouts/base.njk
       { label: "The company's opinion", value: opinion }
     ]
   }) }}
+
+  {{ portraitFigure({ src: portrait, alt: portraitAlt or ("Portrait of " + title) }) }}
 
   {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
 

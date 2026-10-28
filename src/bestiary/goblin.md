@@ -3,6 +3,8 @@ title: Goblin
 kind: Goblinkin
 habitat: The roads into Maiden's Vale
 summary: Little green men with pointy ears. Gobbos, according to Dumpy.
+portrait: /img/goblin.jpg
+portraitAlt: "A snarling goblin with long pointed ears, crouched on a road with a notched blade"
 ---
 
 Small, green and pointy-eared. Four of them were set upon Brian Enorath on the road when the knight and the sorcerer came along. None survived. Dumpy calls them gobbos.

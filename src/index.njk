@@ -11,12 +11,16 @@ title: Home
 {% set latest = collections.sessions | last %}
 {% set count = collections.sessions.length %}
 
-{% call hero({ kicker: "Here begins", title: site.title, lede: site.subtitle }) %}
+{% call hero({
+  kicker: "Here begins",
+  title: "The Story So Far",
+  lede: site.description
+}) %}
   {{ tallies([
     { value: count, label: "entry" if count == 1 else "entries" },
     { value: collections.company | whereNot("status", "dead") | length, label: "still standing" },
     { value: collections.sessions | slainTotal, label: "foes slain" }
-  ], "The story so far") }}
+  ]) }}
 {% endcall %}
 
 {{ rule() }}
@@ -34,7 +38,7 @@ title: Home
 {% call section({ title: "The Company", id: "company-h", wide: true }) %}
   {% call cardGrid() %}
     {% for c in collections.company | whereNot("status", "dead") %}
-    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession }) }}
+    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, image: c.data.portrait }) }}
     {% endfor %}
   {% endcall %}
 {% endcall %}

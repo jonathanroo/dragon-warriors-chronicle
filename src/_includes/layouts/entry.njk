@@ -16,7 +16,6 @@ layout: layouts/base.njk
   {{ pageHeader({
     kicker: "Entry the " + (session | ordinal) + '<span aria-hidden="true"> · </span>' + when,
     title: title,
-    lede: summary,
     meta: [
       { label: "Where", value: location },
       { label: "Days passed", value: days },
@@ -50,7 +49,7 @@ layout: layouts/base.njk
 
   {% call cast() %}
     {% if company and company.length %}{% call castGroup("Of the company") %}{{ inlineLinks(collections.company, company) }}{% endcall %}{% endif %}
-    {% if souls and souls.length %}{% call castGroup("Souls and miscreants") %}{{ inlineLinks(collections.souls, souls) }}{% endcall %}{% endif %}
+    {% if souls and souls.length %}{% call castGroup("Characters") %}{{ inlineLinks(collections.souls, souls) }}{% endcall %}{% endif %}
     {% if encountered and encountered.length %}{% call castGroup("Creatures met") %}{{ inlineLinks(collections.bestiary, encountered) }}{% endcall %}{% endif %}
   {% endcall %}
 

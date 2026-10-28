@@ -36,6 +36,47 @@ const tokensImporter = {
   load: () => ({ contents: tokensScss(), syntax: "scss" }),
 };
 
+// Curly quotes, apostrophes, dashes and ellipses in the text of a page.
+// Works on the finished HTML, so front matter and Markdown both get it.
+// Tags are left alone, as is anything inside pre, code, script, style,
+// textarea or svg. A word that starts with a dropped letter needs a real
+// apostrophe in the source (’Ello), or it reads as an opening quote.
+const SKIP = /^<(\/?)(pre|code|script|style|textarea|svg)\b/i;
+const BLOCK = /^<\/?(p|li|h[1-6]|div|br|td|th|dt|dd|dl|ul|ol|blockquote|figcaption|figure|title|section|article|aside|header|footer|nav|main|body|head|table|tr)\b/i;
+const OPENS_AFTER = /[\s(\[{–—‘“]/;
+
+function smartText(text, prev) {
+  let out = "";
+  for (const [tok] of text.matchAll(/&quot;|&#34;|&#39;|&#x27;|&[a-z0-9#]+;|\.\.\.|---|--|[^&"'.-]+|./gi)) {
+    let rep = tok;
+    if (/^(&quot;|&#34;|")$/i.test(tok)) rep = OPENS_AFTER.test(prev) ? "“" : "”";
+    else if (/^(&#39;|&#x27;|')$/i.test(tok)) rep = OPENS_AFTER.test(prev) ? "‘" : "’";
+    else if (tok === "...") rep = "…";
+    else if (tok === "---") rep = "—";
+    else if (tok === "--") rep = "–";
+    out += rep;
+    prev = rep.startsWith("&") ? "x" : rep.slice(-1);
+  }
+  return [out, prev];
+}
+
+function smarten(html) {
+  let prev = " ";
+  let skip = 0;
+  return html.replace(/(<!--[\s\S]*?-->|<[^>]*>)|([^<]+)/g, (m, tag, text) => {
+    if (tag) {
+      const s = tag.match(SKIP);
+      if (s) skip = Math.max(0, skip + (s[1] ? -1 : 1));
+      if (BLOCK.test(tag)) prev = " ";
+      return tag;
+    }
+    if (skip) return text;
+    const [out, last] = smartText(text, prev);
+    prev = last;
+    return out;
+  });
+}
+
 // WCAG contrast ratio between two hex colours
 function luminance(hex) {
   const [r, g, b] = hex.replace("#", "").match(/../g).map((h) => {
@@ -55,6 +96,7 @@ const FONTS = [
   "eb-garamond/files/eb-garamond-latin-600-normal.woff2",
   "uncial-antiqua/files/uncial-antiqua-latin-400-normal.woff2",
   "im-fell-english-sc/files/im-fell-english-sc-latin-400-normal.woff2",
+  "cinzel/files/cinzel-latin-900-normal.woff2",
 ];
 
 export default function (eleventyConfig) {
@@ -67,6 +109,9 @@ export default function (eleventyConfig) {
   eleventyConfig.addExtension("scss", {
     outputFileExtension: "css",
     useLayouts: false,
+    // Eleventy caches by the entry file's content, so without this an edit
+    // to a partial alone would serve the old CSS until a restart
+    compileOptions: { cache: false },
     compile: async function (inputContent, inputPath) {
       const parsed = path.parse(inputPath);
       if (parsed.name.startsWith("_")) return;
@@ -88,6 +133,10 @@ export default function (eleventyConfig) {
   let njkEnv;
   eleventyConfig.amendLibrary("njk", (env) => { njkEnv = env; });
   eleventyConfig.addFilter("renderNjk", (source) => njkEnv.renderString(source, {}));
+
+  eleventyConfig.addTransform("smarten", function (content) {
+    return (this.page.outputPath || "").endsWith(".html") ? smarten(content) : content;
+  });
 
   eleventyConfig.addPassthroughCopy({ "src/img": "img" });
   for (const f of FONTS) {

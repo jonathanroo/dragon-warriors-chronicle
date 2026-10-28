@@ -1,6 +1,8 @@
 {
   "title": "Dilemma for his Dragon",
-  "subtitle": "Being a true account of our wanderings in the land of Legend",
+  "titleLines": ["Dilemma", "for his", "Dragon"],
+  "subtitle": "A true account of wanderings in the Vale of Glissom",
+  "tagline": "The chronicle of a Dragon Warriors campaign",
   "description": "The chronicle of a Dragon Warriors campaign: four ill-matched adventurers, a fog-bound village and far too much bobbit stew.",
   "url": "https://jonathanroo.github.io/dragon-warriors-chronicle",
   "author": "Jon",
@@ -8,7 +10,6 @@
   "nav": [
     { "label": "The Chronicle", "url": "/chronicle/" },
     { "label": "The Company", "url": "/company/" },
-    { "label": "Bestiary", "url": "/bestiary/" },
-    { "label": "Souls and Miscreants", "url": "/souls/" }
+    { "label": "Characters and Creatures", "url": "/characters/" }
   ]
 }

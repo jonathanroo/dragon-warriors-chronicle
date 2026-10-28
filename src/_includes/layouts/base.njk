@@ -21,18 +21,20 @@
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="{{ site.title }}: a shield emblem and the title in uncial lettering on parchment">
+  <meta property="og:image:alt" content="{{ site.title }}: the title in cream capitals over a dark red glow">
   <meta property="og:locale" content="en_GB">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="theme-color" content="#ece0c2">
+  <meta name="theme-color" content="#0d0b0a">
   <link rel="preload" href="/fonts/uncial-antiqua-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/fonts/cinzel-latin-900-normal.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="/css/style.css">
-  <link rel="icon" href="/img/emblem.svg" type="image/svg+xml">
+  <link rel="icon" href="/img/favicon.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/favicon.png">
 </head>
 <body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
   {{ skipLink() }}
-  {{ masthead({ site: site, currentUrl: page.url }) }}
+  {{ masthead({ site: site, currentUrl: page.url, compact: page.url != "/" }) }}
   <main id="main" class="page">
     {{ content | safe }}
   </main>

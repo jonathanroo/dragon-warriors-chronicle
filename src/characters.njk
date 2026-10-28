@@ -1,0 +1,26 @@
+---
+layout: layouts/base.njk
+title: Characters and Creatures
+permalink: /characters/
+---
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/section/section.njk" import section %}
+{% from "components/card/card.njk" import card, cardGrid %}
+{{ pageHeader({ title: title }) }}
+
+{% call section({ title: "Characters", id: "characters-h", intro: "Friends, foes and the merely suspicious", wide: true }) %}
+  {% call cardGrid() %}
+    {% for p in collections.souls %}
+    {{ card({ title: p.data.title, href: p.url, sub: p.data.role + (", deceased" if p.data.status == "dead" else ""), body: p.data.summary, muted: p.data.status == "dead", image: p.data.portrait }) }}
+    {% endfor %}
+  {% endcall %}
+{% endcall %}
+
+{% call section({ title: "Creatures", id: "creatures-h", intro: "Things that have tried to kill us", wide: true }) %}
+  {% call cardGrid() %}
+    {% for c in collections.bestiary %}
+    {% set slain = collections.sessions | kills("creature", c.fileSlug) | total %}
+    {{ card({ title: c.data.title, href: c.url, sub: c.data.kind, body: c.data.summary, foot: (slain + " slain") if slain, image: c.data.portrait }) }}
+    {% endfor %}
+  {% endcall %}
+{% endcall %}

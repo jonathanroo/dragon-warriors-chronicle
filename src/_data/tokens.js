@@ -13,6 +13,9 @@ export default {
     { name: "rubric", value: "#8b1e14", role: "Links, kickers, ornaments" },
     { name: "rubric-dark", value: "#6a150d", role: "Link hover" },
     { name: "line", value: "rgba(36, 26, 18, 0.25)", role: "Hairlines between rows", decorative: true },
+    { name: "char", value: "#0d0b0a", role: "The masthead's black: series strip, nav bar, title outline" },
+    { name: "flame", value: "#c2380f", role: "Nav diamonds on char", decorative: true },
+    { name: "ember", value: "#f0a040", role: "Fire highlights on char: the current section", decorative: true },
   ],
 
   fonts: [
@@ -33,6 +36,12 @@ export default {
       stack: `"Fell SC", "Garamond", Georgia, serif`,
       family: "IM Fell English SC",
       role: "Kickers, labels, navigation, table headings",
+    },
+    {
+      name: "roman",
+      stack: `"Cinzel", "Trajan Pro", Georgia, serif`,
+      family: "Cinzel",
+      role: "The masthead title, after the Dragon Warriors cover",
     },
   ],
 
@@ -58,7 +67,7 @@ export default {
   ],
 
   widths: [
-    { name: "measure", value: "40rem", role: "Reading width for prose" },
+    { name: "measure", value: "35rem", role: "Reading width for prose, about 65 characters a line" },
     { name: "wide", value: "62rem", role: "Page width for grids and the masthead" },
   ],
 
