@@ -1,29 +1,28 @@
 ---
 layout: layouts/base.njk
 ---
-{% import "macros.njk" as m %}
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/prose/prose.njk" import prose %}
+{% from "components/section/section.njk" import section %}
+{% from "components/session-list/session-list.njk" import sessionList %}
 {% set met = collections.sessions | mentioning("souls", page.fileSlug) %}
-<article class="folio">
-  <header class="folio-head">
-    <p class="kicker">{{ "Miscreant" if kind == "miscreant" else "Soul" }}{% if role %}<span aria-hidden="true"> · </span>{{ role }}{% endif %}</p>
-    <h1>{{ title }}</h1>
-    {{ m.statusMark(status) }}
-    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
-    <dl class="meta">
-      {% if location %}<div><dt>Found at</dt><dd>{{ location }}</dd></div>{% endif %}
-      {% if met.length %}<div><dt>First met</dt><dd><a href="{{ met[0].url }}">{{ met[0].data.title }}</a></dd></div>{% endif %}
-      {% if opinion %}<div><dt>The company's opinion</dt><dd>{{ opinion }}</dd></div>{% endif %}
-    </dl>
-  </header>
+{% set firstMet %}{% if met.length %}<a href="{{ met[0].url }}">{{ met[0].data.title }}</a>{% endif %}{% endset %}
+<article>
+  {{ pageHeader({
+    kicker: ("Miscreant" if kind == "miscreant" else "Soul") + ((' <span aria-hidden="true">·</span> ' + role) if role else ""),
+    title: title,
+    status: status,
+    lede: summary,
+    meta: [
+      { label: "Found at", value: location },
+      { label: "First met", value: firstMet | trim },
+      { label: "The company's opinion", value: opinion }
+    ]
+  }) }}
 
-  <div class="prose has-dropcap">
-    {{ content | safe }}
-  </div>
+  {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
 
   {% if met.length %}
-  <section aria-labelledby="met-h">
-    <h2 id="met-h">Appears in the Chronicle</h2>
-    {{ m.sessionList(met) }}
-  </section>
+  {% call section({ title: "Appears in the Chronicle", id: "met-h" }) %}{{ sessionList(met) }}{% endcall %}
   {% endif %}
 </article>

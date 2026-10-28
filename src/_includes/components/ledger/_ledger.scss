@@ -1,0 +1,26 @@
+@use "scss/settings" as *;
+
+.ledger {
+  width: 100%;
+  border-collapse: collapse;
+  @include double-rule;
+
+  caption { text-align: left; margin-bottom: space(2xs); @include label-type; color: color(ink-soft); }
+
+  th, td {
+    padding: space(2xs) 0.6rem;
+    text-align: left;
+    border-bottom: 1px solid color(line);
+  }
+
+  th {
+    @include label-type(size(md));
+    color: color(ink-soft);
+    border-bottom-color: color(ink);
+  }
+
+  &__num {
+    text-align: right !important;
+    font-variant-numeric: lining-nums tabular-nums;
+  }
+}

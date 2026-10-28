@@ -1,11 +1,14 @@
+{%- from "components/skip-link/skip-link.njk" import skipLink -%}
+{%- from "components/masthead/masthead.njk" import masthead -%}
+{%- from "components/colophon/colophon.njk" import colophon -%}
 <!doctype html>
 <html lang="en-GB">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }}</title>
   {%- set pageTitle = title if (title and page.url != "/") else site.title %}
   {%- set pageDesc = summary or epithet or site.description %}
+  <title>{% if title and page.url != "/" %}{{ title }} · {% endif %}{{ site.title }}</title>
   <meta name="description" content="{{ pageDesc }}">
   <link rel="canonical" href="{{ site.url }}{{ page.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
@@ -27,34 +30,12 @@
   <link rel="stylesheet" href="/css/style.css">
   <link rel="icon" href="/img/emblem.svg" type="image/svg+xml">
 </head>
-<body>
-  <a class="skip-link" href="#main">Skip to content</a>
-
-  <header class="masthead">
-    <a href="/" class="brand">
-      {% include "emblem.svg" %}
-      <span class="brand-text">
-        <span class="brand-title">{{ site.title }}</span>
-        <span class="brand-sub">{{ site.subtitle }}</span>
-      </span>
-    </a>
-    <nav class="nav" aria-label="Sections">
-      <ul>
-        {%- for item in site.nav %}
-        <li><a href="{{ item.url }}"{% if page.url.startsWith(item.url) %} aria-current="{{ 'page' if page.url == item.url else 'true' }}"{% endif %}>{{ item.label }}</a></li>
-        {%- endfor %}
-      </ul>
-    </nav>
-  </header>
-
+<body{% if bodyClass %} class="{{ bodyClass }}"{% endif %}>
+  {{ skipLink() }}
+  {{ masthead({ site: site, currentUrl: page.url }) }}
   <main id="main" class="page">
     {{ content | safe }}
   </main>
-
-  <footer class="colophon">
-    <hr class="rule" aria-hidden="true">
-    <p>Set down by {{ site.author }}, who plays Brian, from memory, the group chat and the occasional exaggeration. Games Master: {{ site.gm }}.</p>
-    <p class="small">An unofficial fan diary of a Dragon Warriors campaign.</p>
-  </footer>
+  {{ colophon({ site: site }) }}
 </body>
 </html>

@@ -1,0 +1,18 @@
+@use "scss/settings" as *;
+
+.feature {
+  text-align: center;
+
+  &__kicker { margin: 0; @include label-type(1.05rem); color: color(rubric); }
+
+  h2 { margin-top: 0.3rem; }
+  h2 a { color: color(ink); text-decoration: none; }
+  h2 a:hover { color: color(rubric); }
+
+  &__lede { font-size: 1.15em; font-style: italic; color: color(ink-soft); }
+
+  &__more {
+    @include label-type(inherit);
+    &::after { content: " \2192"; }
+  }
+}

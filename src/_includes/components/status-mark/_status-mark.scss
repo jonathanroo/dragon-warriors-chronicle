@@ -1,0 +1,12 @@
+@use "scss/settings" as *;
+
+.status-mark {
+  display: inline-block;
+  margin: 0 0 space(xs);
+  padding: 0.1rem 0.7rem;
+  border: 1px solid currentColor;
+  @include label-type(0.95rem);
+  color: color(ink-soft);
+
+  &--dead { color: color(rubric); }
+}

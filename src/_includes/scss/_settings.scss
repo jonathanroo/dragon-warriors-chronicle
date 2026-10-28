@@ -1,0 +1,48 @@
+// Token access and shared mixins. @use this from any partial.
+@use "sass:map";
+@use "design-tokens" as t;
+
+@function color($name) { @return var(--color-#{$name}); }
+@function font($name) { @return var(--font-#{$name}); }
+@function space($name) { @return var(--space-#{$name}); }
+@function size($name) { @return var(--size-#{$name}); }
+@function width($name) { @return var(--width-#{$name}); }
+
+// Media queries can't read custom properties, so breakpoints come from Sass.
+@mixin mq($name) {
+  @media (min-width: map.get(t.$breakpoints, $name)) { @content; }
+}
+
+// Small capitals label style used for kickers, nav and table heads
+@mixin label-type($size: size(md)) {
+  font-family: font(label);
+  font-size: $size;
+  letter-spacing: 0.05em;
+  font-weight: 400;
+}
+
+// The raised parchment panel with a hard ink shadow
+@mixin plate($shadow: 4px) {
+  background: color(parchment-light);
+  border: 2px solid color(ink);
+  box-shadow: $shadow $shadow 0 color(ink);
+}
+
+// Ruled box, double line top and bottom
+@mixin double-rule($sides: top bottom) {
+  @each $side in $sides { border-#{$side}: 3px double color(ink); }
+}
+
+@mixin diamond($size: 0.45em, $color: color(rubric)) {
+  content: "";
+  display: inline-block;
+  width: $size;
+  height: $size;
+  background: $color;
+  transform: rotate(45deg);
+}
+
+@mixin focus-ring {
+  outline: 3px solid color(ink);
+  outline-offset: 3px;
+}

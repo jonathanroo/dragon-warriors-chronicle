@@ -1,0 +1,12 @@
+{#-
+  A centred teaser for one item, such as the latest entry.
+  p.kicker, p.title, p.href, p.lede, p.linkText
+-#}
+{% macro feature(p) %}
+<section class="feature" aria-labelledby="feature-title">
+  {% if p.kicker %}<p class="feature__kicker">{{ p.kicker }}</p>{% endif %}
+  <h2 id="feature-title"><a href="{{ p.href }}">{{ p.title }}</a></h2>
+  {% if p.lede %}<p class="feature__lede">{{ p.lede }}</p>{% endif %}
+  <p><a class="feature__more" href="{{ p.href }}">{{ p.linkText or "Read more" }}</a></p>
+</section>
+{% endmacro %}

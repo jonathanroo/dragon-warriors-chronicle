@@ -1,0 +1,45 @@
+@use "scss/settings" as *;
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: space(md);
+  margin: 0 0 space(sm);
+  padding: 0;
+  list-style: none;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: space(3xs);
+  margin: 0;
+  padding: 1.1rem 1.25rem 1.25rem;
+  @include plate;
+  transition: transform 0.1s, box-shadow 0.1s;
+
+  &:hover { transform: translate(-1px, -1px); box-shadow: 5px 5px 0 color(rubric); }
+  &:focus-within { outline: 3px solid color(rubric); outline-offset: 4px; }
+
+  &__title {
+    font-family: font(display);
+    font-size: 1.35rem;
+    line-height: 1.2;
+    color: color(ink);
+    text-decoration: none;
+
+    // Whole card is the click target
+    &::after { content: ""; position: absolute; inset: 0; }
+    &:hover { color: color(ink); }
+    &:focus-visible { outline: none; background: none; }
+  }
+
+  &__sub { @include label-type(size(md)); color: color(rubric); }
+  &__body { margin: space(2xs) 0 0; font-size: size(md); color: color(ink-soft); }
+  &__foot { margin-top: auto; padding-top: 0.6rem; font-size: 0.9rem; font-style: italic; color: color(ink-faint); }
+
+  &--muted { opacity: 0.75; }
+
+  @media (prefers-reduced-motion: reduce) { &:hover { transform: none; } }
+}

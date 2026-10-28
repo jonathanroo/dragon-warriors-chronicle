@@ -1,0 +1,19 @@
+@use "scss/settings" as *;
+
+.quote {
+  margin: 0 0 space(md);
+  padding: space(sm) 1.25rem;
+  background: color(parchment-light);
+  border-left: 4px solid color(rubric);
+
+  blockquote { margin: 0; font-size: 1.15em; font-style: italic; }
+  p { margin: 0; }
+  p::before { content: "\201C"; }
+  p::after { content: "\201D"; }
+
+  figcaption {
+    margin-top: 0.4rem;
+    @include label-type;
+    color: color(ink-soft);
+  }
+}

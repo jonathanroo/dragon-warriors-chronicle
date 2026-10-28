@@ -1,0 +1,31 @@
+@use "scss/settings" as *;
+
+.prose {
+  h2 {
+    font-size: size(xl);
+    &::before { @include diamond; margin-right: 0.5em; vertical-align: 0.15em; }
+  }
+
+  blockquote {
+    margin: space(md) 0;
+    padding-left: 1.25rem;
+    border-left: 3px double color(rubric);
+    font-style: italic;
+  }
+
+  &--dropcap > p:first-child::first-letter {
+    float: left;
+    margin: 0.08em 0.14em 0 0;
+    padding: 0.12em 0.14em 0.06em;
+    font-family: font(display);
+    font-size: 3.6em;
+    line-height: 0.85;
+    color: color(rubric);
+    background: color(parchment-light);
+    border: 2px solid color(ink);
+    box-shadow:
+      3px 3px 0 color(ink),
+      inset 0 0 0 3px color(parchment-light),
+      inset 0 0 0 4px color(ink);
+  }
+}

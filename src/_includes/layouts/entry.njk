@@ -1,68 +1,63 @@
 ---
 layout: layouts/base.njk
 ---
-{% import "macros.njk" as m %}
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/prose/prose.njk" import prose %}
+{% from "components/section/section.njk" import section %}
+{% from "components/ledger/ledger.njk" import ledger %}
+{% from "components/quote/quote.njk" import quote %}
+{% from "components/cast/cast.njk" import cast, castGroup %}
+{% from "components/inline-links/inline-links.njk" import inlineLinks %}
+{% from "components/pager/pager.njk" import pager %}
 {% set scribeItem = collections.company | bySlug(scribe) if scribe %}
-<article class="folio">
-  <header class="folio-head">
-    <p class="kicker">Entry the {{ session | ordinal }}<span aria-hidden="true"> · </span><time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time></p>
-    <h1>{{ title }}</h1>
-    {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
-    <dl class="meta">
-      {% if location %}<div><dt>Where</dt><dd>{{ location }}</dd></div>{% endif %}
-      {% if days %}<div><dt>Days passed</dt><dd>{{ days }}</dd></div>{% endif %}
-      {% if scribeItem %}<div><dt>As told by</dt><dd><a href="{{ scribeItem.url }}">{{ scribeItem.data.title }}</a></dd></div>{% endif %}
-    </dl>
-  </header>
+{% set when %}<time datetime="{{ date | isoDate }}">{{ date | readableDate }}</time>{% endset %}
+{% set scribeLink %}{% if scribeItem %}<a href="{{ scribeItem.url }}">{{ scribeItem.data.title }}</a>{% endif %}{% endset %}
+<article>
+  {{ pageHeader({
+    kicker: "Entry the " + (session | ordinal) + '<span aria-hidden="true"> · </span>' + when,
+    title: title,
+    lede: summary,
+    meta: [
+      { label: "Where", value: location },
+      { label: "Days passed", value: days },
+      { label: "As told by", value: scribeLink | trim }
+    ]
+  }) }}
 
-  <div class="prose has-dropcap">
-    {{ content | safe }}
-  </div>
+  {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
 
   {% if slain and slain.length %}
-  <section class="tally" aria-labelledby="tally-h">
-    <h2 id="tally-h">The Tally of the Slain</h2>
-    <table class="ledger">
-      <thead><tr><th scope="col">Creature</th><th scope="col">Struck down by</th><th scope="col" class="n">Number</th></tr></thead>
-      <tbody>
-        {%- for k in slain %}
-        {% set c = collections.bestiary | bySlug(k.creature) %}
-        {% set who = collections.company | bySlug(k.by) %}
-        <tr>
-          <td>{% if c %}<a href="{{ c.url }}">{{ c.data.title }}</a>{% else %}{{ k.creature }}{% endif %}</td>
-          <td>{% if who %}<a href="{{ who.url }}">{{ who.data.title }}</a>{% else %}{{ k.by or "The company" }}{% endif %}</td>
-          <td class="n">{{ k.count or 1 }}</td>
-        </tr>
-        {%- endfor %}
-      </tbody>
-    </table>
-  </section>
+  {% call section({ title: "The Tally of the Slain", id: "tally-h" }) %}
+    {% call ledger({ caption: "Creatures slain this session", hideCaption: true, head: [{ text: "Creature" }, { text: "Struck down by" }, { text: "Number", numeric: true }] }) %}
+      {%- for k in slain %}
+      {% set c = collections.bestiary | bySlug(k.creature) %}
+      {% set who = collections.company | bySlug(k.by) %}
+      <tr>
+        <td>{% if c %}<a href="{{ c.url }}">{{ c.data.title }}</a>{% else %}{{ k.creature }}{% endif %}</td>
+        <td>{% if who %}<a href="{{ who.url }}">{{ who.data.title }}</a>{% else %}{{ k.by or "The company" }}{% endif %}</td>
+        <td class="ledger__num">{{ k.count or 1 }}</td>
+      </tr>
+      {%- endfor %}
+    {% endcall %}
+  {% endcall %}
   {% endif %}
 
   {% if quotes and quotes.length %}
-  <section class="quotes" aria-labelledby="quotes-h">
-    <h2 id="quotes-h">Overheard at the Table</h2>
-    {% for q in quotes %}
-    <figure>
-      <blockquote><p>{{ q.text }}</p></blockquote>
-      <figcaption>{{ q.who }}</figcaption>
-    </figure>
-    {% endfor %}
-  </section>
+  {% call section({ title: "Overheard at the Table", id: "quotes-h" }) %}
+    {% for q in quotes %}{{ quote({ text: q.text, cite: q.who }) }}{% endfor %}
+  {% endcall %}
   {% endif %}
 
-  <aside class="dramatis" aria-label="Who and what appeared">
-    {% if company and company.length %}<p><span class="label">Of the company</span> {{ m.links(collections.company, company) }}</p>{% endif %}
-    {% if souls and souls.length %}<p><span class="label">Souls and miscreants</span> {{ m.links(collections.souls, souls) }}</p>{% endif %}
-    {% if encountered and encountered.length %}<p><span class="label">Creatures met</span> {{ m.links(collections.bestiary, encountered) }}</p>{% endif %}
-  </aside>
+  {% call cast() %}
+    {% if company and company.length %}{% call castGroup("Of the company") %}{{ inlineLinks(collections.company, company) }}{% endcall %}{% endif %}
+    {% if souls and souls.length %}{% call castGroup("Souls and miscreants") %}{{ inlineLinks(collections.souls, souls) }}{% endcall %}{% endif %}
+    {% if encountered and encountered.length %}{% call castGroup("Creatures met") %}{{ inlineLinks(collections.bestiary, encountered) }}{% endcall %}{% endif %}
+  {% endcall %}
 
   {% set prev = collections.sessions | getPreviousCollectionItem %}
   {% set next = collections.sessions | getNextCollectionItem %}
-  {% if prev or next %}
-  <nav class="pager" aria-label="Other entries">
-    {% if prev %}<a class="prev" href="{{ prev.url }}" rel="prev"><span class="label">Previous entry</span>{{ prev.data.title }}</a>{% endif %}
-    {% if next %}<a class="next" href="{{ next.url }}" rel="next"><span class="label">Next entry</span>{{ next.data.title }}</a>{% endif %}
-  </nav>
-  {% endif %}
+  {{ pager({
+    prev: { url: prev.url, title: prev.data.title } if prev,
+    next: { url: next.url, title: next.data.title } if next
+  }) }}
 </article>

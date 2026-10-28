@@ -2,38 +2,39 @@
 layout: layouts/base.njk
 title: Home
 ---
-{% import "macros.njk" as m %}
+{% from "components/hero/hero.njk" import hero %}
+{% from "components/tally/tally.njk" import tallies %}
+{% from "components/rule/rule.njk" import rule %}
+{% from "components/feature/feature.njk" import feature %}
+{% from "components/section/section.njk" import section %}
+{% from "components/card/card.njk" import card, cardGrid %}
 {% set latest = collections.sessions | last %}
-<section class="hero">
-  <p class="kicker">Here begins</p>
-  <h1>{{ site.title }}</h1>
-  <p class="lede">{{ site.subtitle }}</p>
-  <ul class="tallies" aria-label="The story so far">
-    <li><span class="big">{{ collections.sessions.length }}</span> {{ "entry" if collections.sessions.length == 1 else "entries" }}</li>
-    <li><span class="big">{{ collections.company | whereNot("status", "dead") | length }}</span> still standing</li>
-    <li><span class="big">{{ collections.sessions | slainTotal }}</span> foes slain</li>
-  </ul>
-</section>
+{% set count = collections.sessions.length %}
 
-<hr class="rule" aria-hidden="true">
+{% call hero({ kicker: "Here begins", title: site.title, lede: site.subtitle }) %}
+  {{ tallies([
+    { value: count, label: "entry" if count == 1 else "entries" },
+    { value: collections.company | whereNot("status", "dead") | length, label: "still standing" },
+    { value: collections.sessions | slainTotal, label: "foes slain" }
+  ], "The story so far") }}
+{% endcall %}
+
+{{ rule() }}
 
 {% if latest %}
-<section class="latest" aria-labelledby="latest-h">
-  <p class="kicker">The latest entry, the {{ latest.data.session | ordinal }}</p>
-  <h2 id="latest-h"><a href="{{ latest.url }}">{{ latest.data.title }}</a></h2>
-  {% if latest.data.summary %}<p class="lede">{{ latest.data.summary }}</p>{% endif %}
-  <p><a class="more" href="{{ latest.url }}">Read the entry</a></p>
-</section>
+{{ feature({
+  kicker: "The latest entry, the " + (latest.data.session | ordinal),
+  title: latest.data.title,
+  href: latest.url,
+  lede: latest.data.summary,
+  linkText: "Read the entry"
+}) }}
 {% endif %}
 
-<section class="wide" aria-labelledby="company-h">
-  <h2 id="company-h">The Company</h2>
-  <ul class="cards">
+{% call section({ title: "The Company", id: "company-h", wide: true }) %}
+  {% call cardGrid() %}
     {% for c in collections.company | whereNot("status", "dead") %}
-    <li class="card">
-      <a href="{{ c.url }}"><span class="card-title">{{ c.data.title }}</span></a>
-      <span class="card-sub">{{ c.data.profession }}{% if c.data.rank %}, Rank {{ c.data.rank }}{% endif %}</span>
-    </li>
+    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession }) }}
     {% endfor %}
-  </ul>
-</section>
+  {% endcall %}
+{% endcall %}

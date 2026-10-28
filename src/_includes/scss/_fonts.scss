@@ -1,0 +1,17 @@
+$path: "../fonts/";
+
+@mixin face($family, $file, $weight: 400, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url("#{$path}#{$file}.woff2") format("woff2");
+    font-weight: $weight;
+    font-style: $style;
+    font-display: swap;
+  }
+}
+
+@include face("Garamond", "eb-garamond-latin-400-normal");
+@include face("Garamond", "eb-garamond-latin-400-italic", 400, italic);
+@include face("Garamond", "eb-garamond-latin-600-normal", 600);
+@include face("Uncial", "uncial-antiqua-latin-400-normal");
+@include face("Fell SC", "im-fell-english-sc-latin-400-normal");

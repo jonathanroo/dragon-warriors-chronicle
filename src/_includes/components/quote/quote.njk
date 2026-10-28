@@ -1,0 +1,11 @@
+{#-
+  A line overheard at the table.
+  p.text  the words, without quotation marks
+  p.cite  who said it
+-#}
+{% macro quote(p) %}
+<figure class="quote">
+  <blockquote><p>{{ p.text }}</p></blockquote>
+  {% if p.cite %}<figcaption>{{ p.cite }}</figcaption>{% endif %}
+</figure>
+{% endmacro %}

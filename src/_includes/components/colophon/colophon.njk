@@ -1,0 +1,12 @@
+{#-
+  Site footer.
+  p.site  site data (author, gm)
+-#}
+{% from "components/rule/rule.njk" import rule %}
+{% macro colophon(p) %}
+<footer class="colophon">
+  {{ rule() }}
+  <p>Set down by {{ p.site.author }}, who plays Brian, from memory, the group chat and the occasional exaggeration. Games Master: {{ p.site.gm }}.</p>
+  <p class="small">An unofficial fan diary of a Dragon Warriors campaign. <a href="/design-system/">Design system</a></p>
+</footer>
+{% endmacro %}

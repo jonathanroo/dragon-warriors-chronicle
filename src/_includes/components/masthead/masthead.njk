@@ -1,0 +1,22 @@
+{#-
+  Site header: emblem, title, subtitle and section navigation.
+  p.site        site data (title, subtitle, nav)
+  p.currentUrl  page.url, to mark the current section
+-#}
+{% macro masthead(p) %}
+<header class="masthead">
+  <a href="/" class="masthead__brand">
+    {% include "emblem.svg" %}
+    <span class="masthead__title">{{ p.site.title }}</span>
+    <span class="masthead__sub">{{ p.site.subtitle }}</span>
+  </a>
+  <nav class="masthead__nav" aria-label="Sections">
+    <ul>
+      {%- for item in p.site.nav %}
+      {%- set here = p.currentUrl and p.currentUrl.startsWith(item.url) %}
+      <li><a href="{{ item.url }}"{% if here %} aria-current="{{ 'page' if p.currentUrl == item.url else 'true' }}"{% endif %}>{{ item.label }}</a></li>
+      {%- endfor %}
+    </ul>
+  </nav>
+</header>
+{% endmacro %}

@@ -1,0 +1,24 @@
+{#-
+  A linked panel for a person or creature. Must sit inside cardGrid.
+  p.title  name, links to p.href
+  p.href
+  p.sub    small capitals line under the title
+  p.body   short description
+  p.foot   small italic footnote
+  p.muted  true for the dead
+-#}
+{% macro card(p) %}
+<li class="card{% if p.muted %} card--muted{% endif %}">
+  <a class="card__title" href="{{ p.href }}">{{ p.title }}</a>
+  {% if p.sub %}<span class="card__sub">{{ p.sub }}</span>{% endif %}
+  {% if p.body %}<p class="card__body">{{ p.body }}</p>{% endif %}
+  {% if p.foot %}<span class="card__foot">{{ p.foot }}</span>{% endif %}
+</li>
+{% endmacro %}
+
+{#- Responsive grid of cards. Use with {% call cardGrid() %}…{% endcall %} -#}
+{% macro cardGrid() %}
+<ul class="card-grid wide">
+  {{ caller() }}
+</ul>
+{% endmacro %}

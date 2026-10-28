@@ -1,0 +1,6 @@
+{#- Shows a mark for dead or missing people. Renders nothing for "alive". -#}
+{% macro statusMark(status) -%}
+{%- if status == "dead" %}<span class="status-mark status-mark--dead">Fallen</span>
+{%- elif status == "missing" or status == "unknown" %}<span class="status-mark">Whereabouts unknown</span>
+{%- endif -%}
+{%- endmacro %}

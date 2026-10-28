@@ -101,10 +101,31 @@ summary: One line for the listing.
 ---
 ```
 
-## Design notes
+## Design system
+
+The full reference, with live examples of every component, is at `/design-system/` (linked from the footer).
+
+```
+src/
+  _data/tokens.js            Design tokens: colours, fonts, sizes, space, widths
+  _data/componentDocs.js     Component documentation and examples
+  _includes/scss/            Foundations: settings and mixins, base, layout, utilities
+  _includes/components/      One folder per component:
+    card/card.njk              Nunjucks macro
+    card/_card.scss            its styles
+  _includes/layouts/         Page layouts built from components
+  css/style.scss             Stylesheet entry point
+  design-system.njk          The design system page
+```
+
+- **Tokens** are the single source of truth. Sass reads them with `@use "design-tokens"`, and they are written out as CSS custom properties (`--color-rubric`). In Sass, use `color(rubric)`, `space(md)`, `font(display)` and `@include mq(lg)` from `scss/settings`.
+- **Components** are Nunjucks macros. Import one with `{% from "components/card/card.njk" import card %}`.
+- **Sass** compiles during the Eleventy build, so GitHub Pages only ever serves plain CSS.
+- **Adding a component:** create its folder with `name.njk` and `_name.scss`, add `@use "components/name/name"` to `src/css/style.scss`, and add an entry to `src/_data/componentDocs.js`.
+
+## Other notes
 
 - Fonts (EB Garamond, Uncial Antiqua, IM Fell English SC) are installed from npm and served from the site, so there are no third-party requests.
-- Colours, fonts and widths are CSS custom properties at the top of `src/css/style.css`.
 - `src/_data/site.json` sets `url`, used for share previews. Change it if the address changes.
 - The share preview image is `src/img/share.jpg` (1200 × 630).
 - The emblem is `src/_includes/emblem.svg`. The favicon copy is `src/img/emblem.svg`.

@@ -1,0 +1,24 @@
+@use "settings" as *;
+
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.small { font-size: 0.85em; }
+.plain-list { list-style: none; padding: 0; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { transition: none !important; animation: none !important; }
+}
+
+@media print {
+  body { background: #fff; font-size: 11pt; }
+  body::before { display: none; }
+  .masthead__nav, .pager, .skip-link { display: none; }
+}

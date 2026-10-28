@@ -1,4 +1,7 @@
-import { HtmlBasePlugin } from "@11ty/eleventy";
+import path from "node:path";
+import * as sass from "sass";
+import { HtmlBasePlugin, RenderPlugin } from "@11ty/eleventy";
+import tokens from "./src/_data/tokens.js";
 
 const ORDINALS = [
   "Zeroth", "First", "Second", "Third", "Fourth", "Fifth", "Sixth", "Seventh",
@@ -14,6 +17,38 @@ function roman(n) {
   return out;
 }
 
+// Turns src/_data/tokens.js into Sass maps, served as `@use "design-tokens"`.
+function tokensScss() {
+  const map = (name, items, key = "value") =>
+    `$${name}: (\n${items.map((t) => `  "${t.name}": (${t[key]}),`).join("\n")}\n);`;
+  return [
+    map("colors", tokens.colors),
+    map("fonts", tokens.fonts, "stack"),
+    map("type-scale", tokens.typeScale),
+    map("space", tokens.space),
+    map("widths", tokens.widths),
+    map("breakpoints", tokens.breakpoints),
+  ].join("\n\n");
+}
+
+const tokensImporter = {
+  canonicalize: (url) => (url === "design-tokens" ? new URL("tokens:design") : null),
+  load: () => ({ contents: tokensScss(), syntax: "scss" }),
+};
+
+// WCAG contrast ratio between two hex colours
+function luminance(hex) {
+  const [r, g, b] = hex.replace("#", "").match(/../g).map((h) => {
+    const c = parseInt(h, 16) / 255;
+    return c <= 0.03928 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4;
+  });
+  return 0.2126 * r + 0.7152 * g + 0.0722 * b;
+}
+function contrast(a, b) {
+  const [l1, l2] = [luminance(a), luminance(b)].sort((x, y) => y - x);
+  return (l1 + 0.05) / (l2 + 0.05);
+}
+
 const FONTS = [
   "eb-garamond/files/eb-garamond-latin-400-normal.woff2",
   "eb-garamond/files/eb-garamond-latin-400-italic.woff2",
@@ -24,8 +59,37 @@ const FONTS = [
 
 export default function (eleventyConfig) {
   eleventyConfig.addPlugin(HtmlBasePlugin);
+  eleventyConfig.addPlugin(RenderPlugin);
 
-  eleventyConfig.addPassthroughCopy({ "src/css": "css", "src/img": "img" });
+  // Sass: src/css/style.scss compiles to /css/style.css.
+  // Partials live in src/_includes/scss and beside each component.
+  eleventyConfig.addTemplateFormats("scss");
+  eleventyConfig.addExtension("scss", {
+    outputFileExtension: "css",
+    useLayouts: false,
+    compile: async function (inputContent, inputPath) {
+      const parsed = path.parse(inputPath);
+      if (parsed.name.startsWith("_")) return;
+      const result = sass.compileString(inputContent, {
+        loadPaths: [parsed.dir || ".", "src/_includes"],
+        importers: [tokensImporter],
+        style: "compressed",
+        sourceMap: false,
+      });
+      this.addDependencies(inputPath, result.loadedUrls.filter((u) => u.protocol === "file:"));
+      return async () => result.css;
+    },
+  });
+  eleventyConfig.addWatchTarget("src/_includes/**/*.scss");
+  eleventyConfig.addWatchTarget("src/_data/tokens.js");
+
+  // Renders a Nunjucks snippet with the site's own environment, so the
+  // design system page shows each component exactly as the site does.
+  let njkEnv;
+  eleventyConfig.amendLibrary("njk", (env) => { njkEnv = env; });
+  eleventyConfig.addFilter("renderNjk", (source) => njkEnv.renderString(source, {}));
+
+  eleventyConfig.addPassthroughCopy({ "src/img": "img" });
   for (const f of FONTS) {
     eleventyConfig.addPassthroughCopy({
       [`node_modules/@fontsource/${f}`]: `fonts/${f.split("/").pop()}`,
@@ -71,6 +135,7 @@ export default function (eleventyConfig) {
     (items || []).filter((i) => i.data[key] !== value)
   );
 
+  eleventyConfig.addFilter("contrast", (a, b) => contrast(a, b).toFixed(2));
   eleventyConfig.addFilter("ordinal", (n) => ORDINALS[n] || roman(n));
   eleventyConfig.addFilter("roman", roman);
   eleventyConfig.addFilter("readableDate", (d) =>

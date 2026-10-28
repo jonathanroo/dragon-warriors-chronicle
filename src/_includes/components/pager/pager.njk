@@ -1,0 +1,12 @@
+{#-
+  Previous and next links between entries.
+  p.prev, p.next  { url, title } or empty
+-#}
+{% macro pager(p) %}
+{% if p.prev or p.next %}
+<nav class="pager" aria-label="Other entries">
+  {% if p.prev %}<a class="pager__link" href="{{ p.prev.url }}" rel="prev"><span class="pager__label">Previous entry</span>{{ p.prev.title }}</a>{% endif %}
+  {% if p.next %}<a class="pager__link pager__link--next" href="{{ p.next.url }}" rel="next"><span class="pager__label">Next entry</span>{{ p.next.title }}</a>{% endif %}
+</nav>
+{% endif %}
+{% endmacro %}

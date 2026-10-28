@@ -1,0 +1,16 @@
+{#-
+  A titled section of a page.
+  p.title  h2 text
+  p.id     heading id (required, labels the section)
+  p.count  optional number shown in a countBadge
+  p.intro  optional italic line under the heading
+  p.wide   true to span the full page width
+-#}
+{% from "components/count-badge/count-badge.njk" import countBadge %}
+{% macro section(p) %}
+<section class="section{% if p.wide %} wide{% endif %}" aria-labelledby="{{ p.id }}">
+  <h2 id="{{ p.id }}">{{ p.title }}{% if p.count is defined %} {{ countBadge(p.count) }}{% endif %}</h2>
+  {% if p.intro %}<p class="section__intro">{{ p.intro }}</p>{% endif %}
+  {{ caller() }}
+</section>
+{% endmacro %}

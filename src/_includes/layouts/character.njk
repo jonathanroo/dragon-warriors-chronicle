@@ -1,39 +1,37 @@
 ---
 layout: layouts/base.njk
 ---
-{% import "macros.njk" as m %}
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/portrait/portrait.njk" import portrait as portraitFigure %}
+{% from "components/prose/prose.njk" import prose %}
+{% from "components/section/section.njk" import section %}
+{% from "components/session-list/session-list.njk" import sessionList %}
 {% set appearances = collections.sessions | mentioning("company", page.fileSlug) %}
 {% set kills = collections.sessions | kills("by", page.fileSlug) %}
-<article class="folio">
-  <header class="folio-head">
-    <p class="kicker">{{ profession }}{% if player %}<span aria-hidden="true"> · </span>played by {{ player }}{% endif %}</p>
-    <h1>{{ title }}</h1>
-    {{ m.statusMark(status) }}
-    {% if epithet %}<p class="lede">{{ epithet }}</p>{% endif %}
-  </header>
+<article>
+  {{ pageHeader({
+    kicker: profession + ((' <span aria-hidden="true">·</span> played by ' + player) if player else ""),
+    title: title,
+    status: status,
+    lede: epithet
+  }) }}
 
-  {% if portrait %}<figure class="portrait"><img src="{{ portrait }}" alt="{{ portraitAlt or ('Portrait of ' + title) }}"></figure>{% endif %}
+  {{ portraitFigure({ src: portrait, alt: portraitAlt or ("Portrait of " + title) }) }}
 
-  <div class="prose has-dropcap">
-    {{ content | safe }}
-  </div>
+  {% call prose({ dropcap: true }) %}{{ content | safe }}{% endcall %}
 
   {% if kills.length %}
-  <section aria-labelledby="kills-h">
-    <h2 id="kills-h">Slain by this hand <span class="count">{{ kills | total }}</span></h2>
-    <ul class="plain">
+  {% call section({ title: "Slain by this hand", id: "kills-h", count: kills | total }) %}
+    <ul class="plain-list">
       {%- for k in kills %}
       {% set c = collections.bestiary | bySlug(k.creature) %}
       <li>{{ k.count }} × {% if c %}<a href="{{ c.url }}">{{ c.data.title }}</a>{% else %}{{ k.creature }}{% endif %}, in <a href="{{ k.session.url }}">{{ k.session.data.title }}</a></li>
       {%- endfor %}
     </ul>
-  </section>
+  {% endcall %}
   {% endif %}
 
   {% if appearances.length %}
-  <section aria-labelledby="app-h">
-    <h2 id="app-h">Appears in the Chronicle</h2>
-    {{ m.sessionList(appearances) }}
-  </section>
+  {% call section({ title: "Appears in the Chronicle", id: "app-h" }) %}{{ sessionList(appearances) }}{% endcall %}
   {% endif %}
 </article>

@@ -3,33 +3,25 @@ layout: layouts/base.njk
 title: The Company
 permalink: /company/
 ---
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/section/section.njk" import section %}
+{% from "components/card/card.njk" import card, cardGrid %}
 {% set living = collections.company | whereNot("status", "dead") %}
 {% set fallen = collections.company | where("status", "dead") %}
-<header class="folio-head">
-  <p class="kicker">Those who ride together</p>
-  <h1>{{ title }}</h1>
-</header>
-<ul class="cards">
+{{ pageHeader({ kicker: "Those who ride together", title: title }) }}
+
+{% call cardGrid() %}
   {% for c in living %}
-  <li class="card">
-    <a href="{{ c.url }}"><span class="card-title">{{ c.data.title }}</span></a>
-    <span class="card-sub">{{ c.data.profession }}{% if c.data.rank %}, Rank {{ c.data.rank }}{% endif %}</span>
-    {% if c.data.epithet %}<p>{{ c.data.epithet }}</p>{% endif %}
-    {% if c.data.player %}<span class="card-foot">Played by {{ c.data.player }}</span>{% endif %}
-  </li>
+  {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epithet, foot: ("Played by " + c.data.player) if c.data.player }) }}
   {% endfor %}
-</ul>
+{% endcall %}
+
 {% if fallen.length %}
-<section class="fallen wide" aria-labelledby="fallen-h">
-  <h2 id="fallen-h">The Fallen</h2>
-  <ul class="cards">
+{% call section({ title: "The Fallen", id: "fallen-h", wide: true }) %}
+  {% call cardGrid() %}
     {% for c in fallen %}
-    <li class="card">
-      <a href="{{ c.url }}"><span class="card-title">{{ c.data.title }}</span></a>
-      <span class="card-sub">{{ c.data.profession }}</span>
-      {% if c.data.epitaph %}<p class="epitaph">{{ c.data.epitaph }}</p>{% endif %}
-    </li>
+    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, body: c.data.epitaph, muted: true }) }}
     {% endfor %}
-  </ul>
-</section>
+  {% endcall %}
+{% endcall %}
 {% endif %}

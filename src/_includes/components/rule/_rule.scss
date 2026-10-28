@@ -1,0 +1,10 @@
+@use "scss/settings" as *;
+
+.rule,
+.prose hr {
+  height: 22px;
+  max-width: 22rem;
+  margin: space(xl) auto;
+  border: 0;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 352 22'%3E%3Cg fill='none' stroke='%23241a12'%3E%3Cpath d='M0 11h146M206 11h146' stroke-width='1'/%3E%3Cpath d='M20 8h126M206 14h126' stroke-width='0.6'/%3E%3Cpath d='M176 1l10 10-10 10-10-10z' stroke-width='1.5'/%3E%3Cpath d='M156 11l6-5 6 5-6 5zM184 11l6-5 6 5-6 5z' stroke-width='1'/%3E%3C/g%3E%3Cpath d='M176 6l5 5-5 5-5-5z' fill='%238b1e14'/%3E%3Ccircle cx='150' cy='11' r='1.6' fill='%23241a12'/%3E%3Ccircle cx='202' cy='11' r='1.6' fill='%23241a12'/%3E%3C/svg%3E") center / contain no-repeat;
+}

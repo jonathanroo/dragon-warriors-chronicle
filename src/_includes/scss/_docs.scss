@@ -1,0 +1,196 @@
+// Styles for the design system page only. Everything is prefixed ds-.
+@use "settings" as *;
+
+.ds {
+  display: grid;
+  gap: space(xl);
+
+  @include mq(lg) {
+    grid-template-columns: 13rem minmax(0, 1fr);
+    align-items: start;
+  }
+
+  code {
+    padding: 0.05em 0.3em;
+    background: color(parchment-light);
+    border: 1px solid color(line);
+    border-radius: 3px;
+    font-variant-numeric: normal;
+  }
+
+  h2 { margin-top: space(2xl); }
+  section:first-child h2 { margin-top: 0; }
+}
+
+// Table of contents
+.ds-toc {
+  font-size: size(md);
+
+  @include mq(lg) {
+    position: sticky;
+    top: space(md);
+    max-height: calc(100vh - #{space(xl)});
+    overflow: auto;
+  }
+
+  &__title { @include label-type(size(md)); color: color(ink-faint); margin-bottom: space(2xs); }
+  ol { margin: 0; padding-left: 0; list-style: none; }
+  ol ol { padding-left: space(sm); margin-top: space(3xs); font-size: 0.95em; }
+  li { margin-bottom: space(3xs); }
+}
+
+.ds-body { min-width: 0; }
+
+// Definition lists of facts
+.ds-facts {
+  margin: space(md) 0;
+  div { padding: space(xs) 0; border-top: 1px solid color(line); }
+  dt { font-weight: 600; }
+  dd { margin: space(3xs) 0 0; }
+}
+
+// Colour
+.ds-swatches {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+  gap: space(md);
+  padding: 0;
+  list-style: none;
+}
+
+.ds-swatch {
+  display: flex;
+  flex-direction: column;
+  gap: space(3xs);
+  margin: 0;
+  font-size: size(md);
+
+  &__chip {
+    height: 4.5rem;
+    margin-bottom: space(2xs);
+    border: 2px solid color(ink);
+    box-shadow: 3px 3px 0 color(ink);
+  }
+
+  &__name { font-weight: 600; }
+  code { align-self: flex-start; font-size: 0.8rem; }
+  &__role { color: color(ink-soft); font-style: italic; }
+  &__contrast { font-size: size(sm); color: color(ink-soft); }
+}
+
+.ds-pass {
+  display: inline-block;
+  padding: 0 0.35em;
+  background: color(ink);
+  color: color(parchment-light);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+
+// Typography
+.ds-font {
+  padding: space(sm) 0;
+  border-top: 1px solid color(line);
+
+  &__sample { margin: 0 0 space(2xs); font-size: 1.6rem; line-height: 1.3; }
+  &__meta { margin: 0; font-size: size(md); color: color(ink-soft); }
+}
+
+.ds-scale,
+.ds-space {
+  padding: 0;
+  list-style: none;
+
+  li {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: space(2xs) space(sm);
+    padding: space(2xs) 0;
+    border-top: 1px solid color(line);
+  }
+
+  code { font-size: 0.8rem; }
+}
+
+.ds-scale__sample { min-width: 9rem; }
+
+.ds-space {
+  li { align-items: center; }
+  &__bar { display: inline-block; height: 1rem; background: color(rubric); }
+}
+
+// Components
+.ds-group {
+  margin-top: space(2xl);
+  padding-bottom: space(2xs);
+  @include double-rule(bottom);
+  font-size: size(xl);
+}
+
+.ds-component {
+  padding: space(lg) 0 space(md);
+  border-bottom: 1px solid color(line);
+
+  h4 {
+    margin: 0;
+    font-family: font(display);
+    font-weight: 400;
+    font-size: size(xl);
+  }
+
+  &__file { margin: space(3xs) 0 space(xs); font-size: size(sm); }
+}
+
+// The live example sits on a framed sheet of its own
+.ds-example {
+  position: relative;
+  margin: space(sm) 0;
+  padding: space(lg) space(md);
+  background: color(parchment);
+  border: 1px dashed color(ink-faint);
+
+  > :first-child { margin-top: 0; }
+  > :last-child { margin-bottom: 0; }
+
+  .masthead { padding-top: 0; }
+  .colophon { padding-bottom: 0; }
+  // Clip the skip link until it is focused
+  overflow: hidden;
+  .skip-link:focus { top: space(2xs); left: space(2xs); }
+}
+
+.ds-code {
+  margin: space(xs) 0;
+
+  summary {
+    cursor: pointer;
+    @include label-type(size(md));
+    color: color(rubric);
+  }
+
+  pre {
+    margin: space(2xs) 0 0;
+    padding: space(sm);
+    overflow-x: auto;
+    background: color(ink);
+    color: color(parchment-light);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    tab-size: 2;
+  }
+
+  pre code { padding: 0; background: none; border: 0; }
+}
+
+.ds-params {
+  width: 100%;
+  margin-top: space(sm);
+  border-collapse: collapse;
+  font-size: size(md);
+
+  th, td { padding: space(2xs); text-align: left; vertical-align: top; border-bottom: 1px solid color(line); }
+  th { @include label-type(size(sm)); color: color(ink-soft); border-bottom-color: color(ink); }
+  td:first-child { white-space: nowrap; }
+}

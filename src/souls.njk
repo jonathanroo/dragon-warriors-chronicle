@@ -3,31 +3,25 @@ layout: layouts/base.njk
 title: Souls and Miscreants
 permalink: /souls/
 ---
+{% from "components/page-header/page-header.njk" import pageHeader %}
+{% from "components/section/section.njk" import section %}
+{% from "components/card/card.njk" import card, cardGrid %}
 {% set groups = [
   ["soul", "Souls", "Friends, helpers and the merely harmless"],
   ["miscreant", "Miscreants", "Rogues, villains and the deeply suspicious"]
 ] %}
-<header class="folio-head">
-  <p class="kicker">Folk met upon the road</p>
-  <h1>{{ title }}</h1>
-</header>
+{{ pageHeader({ kicker: "Folk met upon the road", title: title }) }}
 {% for g in groups %}
 {% set people = collections.souls | where("kind", g[0]) %}
-<section class="wide" aria-labelledby="{{ g[0] }}-h">
-  <h2 id="{{ g[0] }}-h">{{ g[1] }}</h2>
-  <p class="aside">{{ g[2] }}</p>
+{% call section({ title: g[1], id: g[0] + "-h", intro: g[2], wide: true }) %}
   {% if people.length %}
-  <ul class="cards">
+  {% call cardGrid() %}
     {% for p in people %}
-    <li class="card{% if p.data.status == 'dead' %} is-dead{% endif %}">
-      <a href="{{ p.url }}"><span class="card-title">{{ p.data.title }}</span></a>
-      <span class="card-sub">{{ p.data.role }}{% if p.data.status == "dead" %}, deceased{% endif %}</span>
-      {% if p.data.summary %}<p>{{ p.data.summary }}</p>{% endif %}
-    </li>
+    {{ card({ title: p.data.title, href: p.url, sub: p.data.role + (", deceased" if p.data.status == "dead" else ""), body: p.data.summary, muted: p.data.status == "dead" }) }}
     {% endfor %}
-  </ul>
+  {% endcall %}
   {% else %}
   <p>None yet.</p>
   {% endif %}
-</section>
+{% endcall %}
 {% endfor %}

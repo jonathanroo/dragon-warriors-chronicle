@@ -1,0 +1,17 @@
+{#-
+  A ruled table. Write the body rows with {% call %}.
+  p.caption        table caption (visually hidden if p.hideCaption)
+  p.head           [{ text, numeric }] column headings
+  Give numeric cells class="ledger__num".
+-#}
+{% macro ledger(p) %}
+<table class="ledger">
+  {% if p.caption %}<caption{% if p.hideCaption %} class="visually-hidden"{% endif %}>{{ p.caption }}</caption>{% endif %}
+  <thead><tr>
+    {%- for h in p.head %}<th scope="col"{% if h.numeric %} class="ledger__num"{% endif %}>{{ h.text }}</th>{% endfor -%}
+  </tr></thead>
+  <tbody>
+    {{ caller() }}
+  </tbody>
+</table>
+{% endmacro %}

@@ -1,0 +1,12 @@
+@use "scss/settings" as *;
+
+.cast {
+  margin-top: space(xl);
+  padding: 1.25rem space(md);
+  border: 1px solid color(ink);
+  outline: 1px solid color(ink);
+  outline-offset: 3px;
+
+  &__group { margin: 0.4rem 0; }
+  &__label { display: block; @include label-type(0.95rem); color: color(ink-faint); }
+}
