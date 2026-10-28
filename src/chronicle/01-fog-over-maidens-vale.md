@@ -14,83 +14,136 @@ slain:
   - { creature: goblin, by: brian-enorath, count: 1 }
 quotes:
   - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often" }
-  - { text: "Those fools going outside.", who: "Mayor Dumpy, bolting the door" }
+  - { text: "Those fools going outside!", who: "Mayor Dumpy, bolting the door" }
   - { text: "Where… hope?", who: The white women }
   - { text: "No sense in wasting good bobbit on a filthy Renard.", who: Biff }
-  - { text: "Well, it's gonna be like that is it?", who: "Biff, leaving in a huff" }
 ---
 
-Sir Nockturn was walking the road with a hedgehog on his surcoat and a golden sword on his mind when he met Pedium, a sorcerer who had been sent to help him. They did not get on. The knight is stupid but self-assured; the sorcerer is clever but grumpy. Neither saw any reason to hide it.
+This adventure starts as many do: on a road with a strong, noble knight. Sir Nockturn was certainly dashing; his armour glinted in the late morning sun, and an impressive hedgehog emblem adorned his surcoat. He was just considering how handsome and truly magnificent he looked when a short man cut short his thoughts.
 
-There were many people on the road that day, but only one stopped to ask who they were and why they had come. He spoke much like several other people we would meet. Before he went on his way, he asked that if we ever came across his friend Renard, we would look after him.
+"’Ello good sir, and what brings a knight such as yourself into these parts?" cackled the stranger.
+
+"I, um, I… I'm sorry, who are you?" inquired Sir Nockturn, looking down his long and snooty nose at the strange, twisted character hunched in front of him.
+
+"Never mind who I am, sir. Question is, who are *you*, and what are you doing on this road?"
+
+Sir Nockturn drew up to his full, considerable height. "I," he announced, "am Sir Nockturn. And I seek a golden sword."
+
+"Do you now," said the stranger, in the tone of a man who had heard stranger things, though not many.
+
+Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do a job he wanted. His name was Pedium, and he had been sent to help.
+
+The stranger watched them eye each other. He sensed the sorcerer had taken an instant disdain for the knight, but the knight wouldn't ever be able to compute that anyone thought less of him than wonderful.
+
+"Good sirs, it would seem that I'm a witness to the meeting of great minds. But, alas, this is where I must leave you. If you ever come across my friend Renard," he said, "you'll look after him, won't you, sir?"
+
+With that, he hobbled off down the road, leaving the knight and the sorcerer to their glaring.
 
 ## Goblins on the road
 
-Further on, the pair came upon a barbarian, Brian Enorath, fighting four little green men with pointy ears. Brian did not exactly cover himself in glory, but he killed one. The sorcerer killed another, and Sir Nockturn, already showing off, killed two.
+Further on, the sounds of a fight came drifting up the road: grunting, clanging, and a great deal of swearing. Rounding a bend, the pair came upon a barbarian, Brian Enorath, beset by four little green men with pointy ears.
 
-Through all of this a villager lay quivering and moaning on the ground. In the heat of the fight the sorcerer let off a fire spell and set light to him. We put him out, covered it up, and he never seemed to notice who was responsible. His name was Dumpy, he called the goblins "gobbos", and he wanted us to know that Dumpy is as Dumpy does.
+Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with a muttered word and a flash of light. Sir Nockturn, already showing off, killed two, and made quite sure everybody saw.
+
+Through it all, a villager lay curled in the dirt, quivering and moaning. In the heat of the fight, Pedium let fly a fire spell, and more of it found the villager than the goblins. He went up like dry kindling. The three adventurers beat out the flames, exchanged a look, and silently agreed that nobody needed ever mention it. The villager, smouldering gently, never seemed to notice who was responsible.
+
+"Gobbos!" he gasped. "Nasty gobbos. Thank you, sirs. Thank you." He wrung each of their hands in turn. "Name's Dumpy." He nodded solemnly, as though this explained a great deal. "Dumpy is as Dumpy does."
+
+Nobody knew what that meant. Dumpy seemed to find it comforting.
+
+Dumpy also made a point of telling them all about the "new chef." He was less clear about what had happened to the old one. 
 
 ## The village
 
-Dumpy led us to his village, Maiden's Vale. It was getting dark, the mist was thickening into fog, and Dumpy was extremely keen to be indoors. Eventually we reached the inn, its sign showing a golden crown. On the door was a notice: *Adventurers wanted. Enter without…* The writing simply stopped, as if whoever was writing it had been snatched away mid-word.
+Dumpy led them home to his village, Maiden's Vale. It was getting dark, and as the light went, the mist thickened into fog: cold, wet, and close enough to touch. Dumpy grew twitchier with every step, peering over his shoulder and hurrying them along. He was extremely keen to be indoors.
 
-Inside, Dumpy introduced us to the mayor, whose name was also Dumpy. It is a common name around these parts. The mayor kept insisting we try the bobbit stew. Dumpy, the original one, was at pains to tell us about the new chef, and less clear about what had happened to the old one.
+At last a building loomed out of the murk: the inn, its sign showing a golden crown. A notice was nailed to the door, written in a hurried hand.
 
-The new chef turned out to be Rudious Greyrat, who admitted he was only cooking while he waited for adventurers to arrive, so that he could help solve the mystery of the fog and the strange goings-on in the village.
+*Adventurers wanted. Enter without…*
 
-Brian drank far too much of the local bobbit ale and did not feel well.
+The writing simply stopped, as if whoever had been writing it had been snatched away mid-word. 
+
+Inside, Dumpy introduced them to the mayor, whose name, it turned out, was also Dumpy. 
+
+"A common name around these parts," said the Mayor. "Please, won't you try the bobbit stew?"
+
+The new chef was a man with a glint in his eye named Rudious Greyrat. He wiped his hands on his apron and admitted, with a wink, that the cooking was really a cover. He had only taken the job while he waited for adventurers to arrive, so that he could help solve the mystery of the fog and the strange goings-on in the village. He seemed delighted that some had finally turned up, even if one of them was singed.
+
+Brian, meanwhile, had discovered the local bobbit ale.
 
 ## The legend
 
-The mayor told us the legend of Sir [name to come] and his many wives. When the knight was buried, his last wish was that his wives be buried with him. After a terrible event, with much screaming and pleading, every one of them was buried with him. Then a great fog rose, and the village has never been the same since.
+As the fire burned low, the mayor told them the legend of Sir [name to come] and his many wives.
 
-His heart, black and wizened, is kept in an old chest by the fire.
+When the knight was buried, he wished that his wives be buried with him. There had been a terrible event, with much screaming and pleading, and in the end every last one of them had gone into the tomb with him. Then a great fog had risen, and the village had never been the same since.
 
-We also met Dumplina the barmaid, who has a penchant for pet bobbits. Then we went to bed.
+He nodded towards an old chest by the fire. Inside was the knight's heart, black and wizened. Nobody asked why the village kept it there. Nobody was quite sure they wanted to know.
+
+Rudious, it quickly became clear, had his own penchant. He leaned on the bar beside Dumpilina the barmaid, smoothed his apron, and set about charming his way into her bed. Dumplina simply rolled her eyes.
+
+Rudious, undeterred and entirely unashamed, assured everyone that she would come round. The others began to suspect that the new chef was a bit of a dirtbag. 
 
 ## The white women
 
-We were woken in the night by screaming. Everyone was, except Brian, who was still nursing a stomach full of stew and ale and would sleep through an earthquake. It was Dumplina. She couldn't find her bobbit.
+They woke in the night to screaming. Everyone, except Brian, who was still nursing a stomach full of stew and ale and would have slept through an earthquake. It was Dumplina. She couldn't find her beloved pet bobbit.
 
-While the mayor tried to comfort her, the sorcerer and Rudious went downstairs to investigate a strange noise outside. They stepped out of the front door and saw two white figures in the fog and moonlight, gliding towards them. As they came closer, the figures became beautiful women, their faces twisted with misery and pain. Closer still, their faces began to fall apart, the flesh dropping from the bone.
+While the mayor tried to comfort her, Pedium and Rudious went downstairs to investigate a strange noise outside. They stepped out the front door, and there, in the fog and moonlight, two white figures glided toward them. As they came closer, they could see that the figures were beautiful women, their faces twisted with misery and pain. Closer still, their faces began to fall apart, the flesh dropping from the bone.
 
-The two of them panicked. Inside, the mayor found the front door open, shut and bolted it, and muttered about fools going outside. Rudious hammered on the door. The sorcerer began conjuring a spell to blow it open. Sir Nockturn reached the door to open it just as the spell went off, and the doors blew in and knocked him senseless.
+The two of them panicked.
 
-Rudious and the sorcerer fled upstairs and had an embarrassing panic attack under a bed.
+Inside, the mayor found the front door standing open. He shut it, bolted it, and muttered, "Those fools going outside!"
 
-At last, Brian woke. He bolted down the stairs to find the two white figures gliding through the doorway, nothing left of them now but skeletons and rags. Somehow he held their terrible gaze. "Where…" they begged, in a rasping whisper. "Where… hope?"
+Outside, Rudious hammered on the door. Pedium began conjuring a spell to blow it open. And inside, Sir Nockturn, roused by the commotion and ready to be heroic, reached the door to open it just as the spell went off. The doors blew in and knocked him senseless.
 
-At that moment Dumplina discovered her bobbit had been in her bedroom all along. Rudious came to his senses, seized the creature, came down and held it out to the apparitions. They screamed and were sucked away into the night. The mayor slammed the door. Everyone gathered their wits. All was quiet.
+Rudious and Pedium leapt over the fallen knight, fled upstairs, and had an embarrassing panic attack under a bed.
 
-The bobbit had been alive when Rudious held it out. Afterwards, it was dead. We presume it was the white women. Dumplina wept softly.
+At last, Brian awoke. He bolted down the stairs to find the two white figures gliding through the doorway, nothing left of them now but skeletons and rags. Somehow he held their terrible gaze.
 
-We slept as well as we could for the rest of the night.
+"Where…" they begged, in a rasping whisper. "Where… hope?"
+
+At that moment Dumplina discovered that her bobbit had been in her bedroom all along. Rudious came to his senses, crawled out from under the bed, seized the creature, came down, and held it out to the apparitions like a holy relic. They screamed, then were sucked into the night. The mayor slammed the door. Everyone gathered their wits. All was quiet.
+
+The bobbit had been alive when Rudious held it out. Afterwards, it was dead. The company presumed it was the white women. Dumplina wept softly. Rudious offered her a shoulder to cry on. She did not take it.
+
+They slept as well as they could for the rest of the night.
 
 ## Into the fog
 
-In the morning Rudious made bobbit on toast and suggested, again, that we go forth and solve the mystery of the white women and the fog. Pedium tried to establish what our reward would be. The mayor explained that they were a poor people, and suggested we might like to do it for the experience. We all agreed.
+In the morning Rudious made bobbit on toast. Nobody asked which bobbit. Over breakfast, he suggested again that they go forth and solve the mystery of the white women and the fog.
 
-Three men were brought forth as our guides. We picked the fat one. His name was Biff.
+Pedium wanted to know the reward.
 
-We loaded up with fresh gear, live bobbits and the blackened heart, and strode into adventure.
+The mayor wrung his hands. They were a poor people, he explained. Perhaps the adventurers might like to do it for the experience?
+
+Of course, they all agreed
+
+Three men were brought forth to serve as guides. The company looked them up and down and picked the fat one. His name was Biff.
+
+They loaded up with fresh gear, live bobbits, and the blackened heart from the chest by the fire, then strode out into the fog, into adventure.
 
 ## The fox in the trap
 
-After a little while Biff had us wait. He said he could hear something and wanted to check it out. He was gone for some time, so we followed him, and found him hunched over a fox caught in a trap, knife in hand, about to slit the poor creature's throat.
+They had not gone far when Biff held up a hand. He could hear something and wanted to check it out. They should wait here.
 
-Brian pulled him away by the scruff of his neck while the others set the fox free. When Pedium offered the fox one of our bobbits, Biff was outraged. "'Ere, wot you doing? No sense in wasting good bobbit on a filthy Renard."
+They waited. Biff was gone for some time. Eventually they went after him and found him hunched over a fox caught in a trap, knife in hand, about to slit the poor creature's throat.
 
-Nobody backed down. "Well, it's gonna be like that is it?" said Biff, and walked off in a huff.
+Brian hauled him off by the scruff of his neck while the others worked to free the fox. When Pedium, in a rare moment of generosity, offered it one of their bobbits, Biff was outraged.
 
-The company looked at the fox. They thought about the traveller on the road, and his friend Renard who needed looking after. They thought about the word Biff had used. And they pondered their next move.
+"’Ere, wot you doing? No sense in wasting good bobbit on a filthy Renard."
+
+Nobody backed down.
+
+"Well, it's gonna be like that, is it?" said Biff, and walked off in a huff, into the fog.
+
+The company looked at the fox. They thought about the traveller on the road, and his friend Renard who needed looking after. They thought about the word Biff had used.
+
+And they pondered their next move.
 
 *Here the first adventure ends.*
 
 ## Loose threads
 
 - Is the fox Renard, and why does he need looking after?
-- Where has Biff gone, and why was he so keen to kill a fox?
 - What happened to the old chef?
 - Why does the inn keep Sir [name to come]'s heart in a chest by the fire?
-- What are the white women looking for, and why did they flee from a bobbit?
-- Who was writing the notice on the door, and what happened to them?
+- What are the white women looking for, and why did they flee?
