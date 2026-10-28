@@ -9,13 +9,12 @@ layout: layouts/base.njk
     <p class="kicker">{{ kind or "Creature" }}{% if habitat %}<span aria-hidden="true"> · </span>{{ habitat }}{% endif %}</p>
     <h1>{{ title }}</h1>
     {% if summary %}<p class="lede">{{ summary }}</p>{% endif %}
+    {% if kills.length %}<p class="tally-badge"><span class="big">{{ kills | total }}</span> slain by the company</p>{% endif %}
   </header>
 
-  <div class="two-col">
-    <div class="main-col">
-      <div class="prose has-dropcap">
-        {{ content | safe }}
-      </div>
+  <div class="prose has-dropcap">
+    {{ content | safe }}
+  </div>
 
   {% if kills.length %}
   <section aria-labelledby="kills-h">
@@ -35,10 +34,4 @@ layout: layouts/base.njk
     {{ m.sessionList(seen) }}
   </section>
   {% endif %}
-    </div>
-    <div class="sidebar">
-      {{ m.statblock(stats, "As we reckon it") }}
-      <p class="tally-badge"><span class="big">{{ kills | total }}</span> slain by the company</p>
-    </div>
-  </div>
 </article>

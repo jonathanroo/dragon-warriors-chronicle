@@ -1,8 +1,10 @@
 {
-  "title": "The Chronicle",
+  "title": "Dilemma for his Dragon",
   "subtitle": "Being a true account of our wanderings in the land of Legend",
-  "description": "A diary of our Dragon Warriors campaign.",
-  "gm": "Jon",
+  "description": "The chronicle of a Dragon Warriors campaign: four ill-matched adventurers, a fog-bound village and far too much bobbit stew.",
+  "url": "https://jonathanroo.github.io/dragon-warriors-chronicle",
+  "author": "Jon",
+  "gm": "Flix",
   "nav": [
     { "label": "The Chronicle", "url": "/chronicle/" },
     { "label": "The Company", "url": "/company/" },

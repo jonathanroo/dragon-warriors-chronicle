@@ -1,10 +1,10 @@
-# The Chronicle
+# Dilemma for his Dragon
 
 A diary of our Dragon Warriors campaign, built with [Eleventy](https://www.11ty.dev/) and published on GitHub Pages.
 
 Live site: https://jonathanroo.github.io/dragon-warriors-chronicle/
 
-All the content in `src/` (the first session, the three characters, the creatures and the NPCs) is **sample content**. Replace it with your own.
+The site records the story only: no stats or equipment.
 
 ## Run it locally
 
@@ -63,35 +63,18 @@ The entry itself, in Markdown. The first letter gets a drop cap.
 
 ```yaml
 ---
-title: Aldric of Thornwood
+title: Sir Nockturn
 profession: Knight
-rank: 1
-player: Sam
+player: Luke
 epithet: A one-line description.
 status: alive            # alive, dead or missing. Dead characters move to The Fallen.
 epitaph: Shown on The Fallen if dead.
 portrait: /img/aldric.jpg              # optional, put the image in src/img/
-portraitAlt: Aldric in his chainmail   # describe the image
-stats:
-  strength: 14
-  reflexes: 11
-  intelligence: 9
-  psychic: 8
-  looks: 12
-  attack: 13
-  defence: 7
-  magicalAttack: 13
-  magicalDefence: 3
-  evasion: 4
-  stealth: 13
-  perception: 5
-  health: 14
-  armour: 5 (chainmail)
-kit: [Sword, Chainmail, 12 florins]
+portraitAlt: Sir Nockturn in his surcoat   # describe the image
 ---
 ```
 
-Leave out any stat that doesn't apply. The character page lists every session they appeared in and everything they killed, worked out from the session files.
+The character page lists every session they appeared in and everything they killed, worked out from the session files.
 
 ### A creature: `src/bestiary/`
 
@@ -101,7 +84,6 @@ title: Skeleton
 kind: Undead
 habitat: Churchyards and crypts
 summary: One line.
-stats: { attack: 13, defence: 6, magicalDefence: 3, evasion: 3, health: 2d6, armour: 0, damage: "d6, 3", rank: 3 }
 ---
 ```
 
@@ -123,4 +105,6 @@ summary: One line for the listing.
 
 - Fonts (EB Garamond, Uncial Antiqua, IM Fell English SC) are installed from npm and served from the site, so there are no third-party requests.
 - Colours, fonts and widths are CSS custom properties at the top of `src/css/style.css`.
+- `src/_data/site.json` sets `url`, used for share previews. Change it if the address changes.
+- The share preview image is `src/img/share.jpg` (1200 × 630).
 - The emblem is `src/_includes/emblem.svg`. The favicon copy is `src/img/emblem.svg`.
