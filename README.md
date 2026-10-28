@@ -2,6 +2,8 @@
 
 A diary of our Dragon Warriors campaign, built with [Eleventy](https://www.11ty.dev/) and published on GitHub Pages.
 
+Live site: https://jonathanroo.github.io/dragon-warriors-chronicle/
+
 All the content in `src/` (the first session, the three characters, the creatures and the NPCs) is **sample content**. Replace it with your own.
 
 ## Run it locally
