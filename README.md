@@ -54,4 +54,4 @@ The only typeface is EB Garamond, installed from npm and served with the site. L
 
 ## Publishing
 
-Publishing to GitHub Pages is paused. To publish again, switch Pages on in the repository settings (Source: GitHub Actions), then either run the deploy workflow from the Actions tab or restore its push trigger in `.github/workflows/deploy.yml`.
+Every push to `main` builds the page and publishes it to GitHub Pages: https://jonathanroo.github.io/dragon-warriors-chronicle/

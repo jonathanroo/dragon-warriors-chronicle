@@ -1,11 +1,8 @@
 name: Deploy to GitHub Pages
 
-# Publishing is paused: the site was taken down on 29 October 2026.
-# To publish again, put back the push trigger below, or run this
-# workflow by hand from the Actions tab.
 on:
-  # push:
-  #   branches: [main]
+  push:
+    branches: [main]
   workflow_dispatch:
 
 permissions:
