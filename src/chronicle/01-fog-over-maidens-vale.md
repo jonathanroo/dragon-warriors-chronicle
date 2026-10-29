@@ -26,7 +26,7 @@ This adventure starts as many do: on a road with a noble knight. Sir Nockturn wa
 
 Sir Nockturn drew up to his full, considerable height. "I," he announced, "am Sir Nockturn. And I seek a golden sword."
 
-"Do you now," said the stranger, incredulously dripping from every syllable.
+"Do you now," said the stranger, incredulity dripping from every syllable.
 
 Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do an assignment he didn’t want. His name was Pedium, and he had been sent to help.
 
@@ -40,7 +40,7 @@ With that, he hobbled off down the road, leaving the knight and the sorcerer to 
 
 Further on, the sounds of fighting came drifting up the road: grunting, clanging, and a great deal of swearing. Rounding a bend, the pair came upon a barbarian, Brian Enorath, beset by four little green men with pointy ears.
 
-Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with surprising nimbleness for a man wearing robes.   Sir Nockturn, already showing off, killed two and made sure everyone saw.
+Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with surprising nimbleness for a man wearing robes. Sir Nockturn, already showing off, killed two and made sure everyone saw.
 
 Through it all, a villager lay curled in the dirt, quivering and moaning. In the heat of the fight, Pedium let fly a fire spell, and more of it found the villager than the goblins. He went up like dry kindling. The three adventurers beat out the flames, exchanged a look, and silently agreed never to mention it. The villager, smouldering gently, never seemed to notice who was responsible.
 
