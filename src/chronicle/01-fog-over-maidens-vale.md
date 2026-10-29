@@ -16,7 +16,7 @@ photos:
     alt: "Close up of miniatures on a tiled floor plan: a woman in a long dress carrying a bucket, facing the green-robed wizard, with a player writing in the background."
 ---
 
-This adventure starts as many do: on a road with a strong, noble knight. Sir Nockturn was certainly dashing; his armour glinted in the late morning sun, and an impressive hedgehog emblem adorned his surcoat. He was just considering how handsome and truly magnificent he looked when a short man cut short his thoughts.
+This adventure starts as many do: on a road with a noble knight. Sir Nockturn was certainly dashing; his armour glinted in the late morning sun, an impressive hedgehog emblem adorned his surcoat. He was just considering how handsome and truly magnificent he looked when a short man cut short his thoughts.
 
 "’Ello good sir, and what brings a knight such as yourself into these parts?" cackled the stranger.
 
@@ -26,11 +26,11 @@ This adventure starts as many do: on a road with a strong, noble knight. Sir Noc
 
 Sir Nockturn drew up to his full, considerable height. "I," he announced, "am Sir Nockturn. And I seek a golden sword."
 
-"Do you now," said the stranger, in the tone of a man who had heard stranger things, though not many.
+"Do you now," said the stranger, incredulously dripping from every syllable.
 
-Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do a job he wanted. His name was Pedium, and he had been sent to help.
+Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do  an assignment he didn’t want. His name was Pedium, and he had been sent to help.
 
-The stranger watched them eye each other. He sensed the sorcerer had taken an instant disdain for the knight, but the knight wouldn't ever be able to compute that anyone thought less of him than wonderful.
+The stranger watched them eye each other. He sensed the sorcerer had taken an instant disdain for the knight, but the knight couldn’t comprehend that anyone thought him less than wonderful.
 
 "Good sirs, it would seem that I'm a witness to the meeting of great minds. But, alas, this is where I must leave you. If you ever come across my friend Renard," he said, "you'll look after him, won't you, sir?"
 
@@ -38,9 +38,9 @@ With that, he hobbled off down the road, leaving the knight and the sorcerer to 
 
 ## Goblins on the road
 
-Further on, the sounds of a fight came drifting up the road: grunting, clanging, and a great deal of swearing. Rounding a bend, the pair came upon a barbarian, Brian Enorath, beset by four little green men with pointy ears.
+Further on, the sounds of fighting came drifting up the road: grunting, clanging, and a great deal of swearing. Rounding a bend, the pair came upon a barbarian, Brian Enorath, beset by four little green men with pointy ears.
 
-Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with a muttered word and a flash of light. Sir Nockturn, already showing off, killed two, and made quite sure everybody saw.
+Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with surprising nimbleness for a man wearing robes.   Sir Nockturn, already showing off, killed two, and made quite sure everybody saw.
 
 Through it all, a villager lay curled in the dirt, quivering and moaning. In the heat of the fight, Pedium let fly a fire spell, and more of it found the villager than the goblins. He went up like dry kindling. The three adventurers beat out the flames, exchanged a look, and silently agreed that nobody needed ever mention it. The villager, smouldering gently, never seemed to notice who was responsible.
 
@@ -56,9 +56,9 @@ Dumpy led them home to his village, Maiden's Vale. It was getting dark, and as t
 
 At last a building loomed out of the murk: the inn, its sign showing a golden crown. A notice was nailed to the door, written in a hurried hand.
 
-*Adventurers wanted. Enter without…*
+*Adventurers wanted. Enter without*
 
-The writing simply stopped, as if whoever had been writing it had been snatched away mid-word. 
+The tail of the final “t” was pulled off the edge of the rough hewn paper, as if whoever had been writing it had been snatched away mid-word. 
 
 Inside, Dumpy introduced them to the mayor, whose name, it turned out, was also Dumpy. 
 
