@@ -2,16 +2,7 @@
 session: 1
 title: Fog over Maiden's Vale
 date: 2026-10-27
-location: The road to Maiden's Vale, the inn, and the woods beyond
-days: 2
 summary: A knight, a sorcerer and a barbarian meet over four dead goblins, follow a singed villager into a fog-bound village, are visited in the night by the white women, and set out to lift the curse with a guide who would rather kill a fox.
-company: [sir-nockturn, pedium, brian-enorath, rudious-greyrat]
-souls: [the-curious-traveller, dumpy, mayor-dumpy, dumplina, biff, renard]
-encountered: [goblin, bobbit, the-white-women]
-slain:
-  - { creature: goblin, by: sir-nockturn, count: 2 }
-  - { creature: goblin, by: pedium, count: 1 }
-  - { creature: goblin, by: brian-enorath, count: 1 }
 photos:
   the-company-in-miniature:
     src: /img/sessions/01/the-company-in-miniature.jpg
@@ -23,11 +14,6 @@ photos:
     width: 1200
     height: 1600
     alt: "Close up of miniatures on a tiled floor plan: a woman in a long dress carrying a bucket, facing the green-robed wizard, with a player writing in the background."
-quotes:
-  - { text: "Dumpy is as Dumpy does.", who: "Dumpy, often", by: dumpy }
-  - { text: "Those fools going outside!", who: "Mayor Dumpy, bolting the door", by: mayor-dumpy }
-  - { text: "Where… hope?", who: The white women, by: the-white-women }
-  - { text: "No sense in wasting good bobbit on a filthy Renard.", who: Biff, by: biff }
 ---
 
 This adventure starts as many do: on a road with a strong, noble knight. Sir Nockturn was certainly dashing; his armour glinted in the late morning sun, and an impressive hedgehog emblem adorned his surcoat. He was just considering how handsome and truly magnificent he looked when a short man cut short his thoughts.

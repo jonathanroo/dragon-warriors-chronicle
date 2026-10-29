@@ -1,1 +1,0 @@
-{ "tags": "creature", "layout": "layouts/creature.njk", "permalink": "/characters/{{ page.fileSlug }}/" }

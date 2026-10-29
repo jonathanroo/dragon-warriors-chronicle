@@ -1,9 +1,0 @@
-{#-
-  A framed picture, toned to match the page.
-  p.src, p.alt (describe the image; required)
--#}
-{% macro portrait(p) %}
-{% if p.src %}
-<figure class="portrait"><img src="{{ p.src }}" alt="{{ p.alt }}"></figure>
-{% endif %}
-{% endmacro %}

@@ -1,1 +1,1 @@
-{ "tags": "chronicle", "layout": "layouts/entry.njk", "permalink": "/chronicle/{{ page.fileSlug }}/" }
+{ "tags": "evening", "permalink": false }

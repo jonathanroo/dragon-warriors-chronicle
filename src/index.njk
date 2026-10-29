@@ -1,44 +1,82 @@
 ---
-layout: layouts/base.njk
-title: Home
+permalink: /
 ---
-{% from "components/hero/hero.njk" import hero %}
-{% from "components/tally/tally.njk" import tallies %}
-{% from "components/rule/rule.njk" import rule %}
-{% from "components/feature/feature.njk" import feature %}
-{% from "components/section/section.njk" import section %}
-{% from "components/card/card.njk" import card, cardGrid %}
-{% set latest = collections.sessions | last %}
-{% set count = collections.sessions.length %}
+<!doctype html>
+<html lang="en-GB">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.title }}</title>
+  <meta name="description" content="{{ site.description }}">
+  <link rel="canonical" href="{{ site.url }}/">
+  <meta property="og:site_name" content="{{ site.title }}">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ site.title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <meta property="og:url" content="{{ site.url }}/">
+  <meta property="og:locale" content="en_GB">
+  <meta name="color-scheme" content="light dark">
+  <link rel="preload" href="/fonts/eb-garamond-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<main>
+  <header class="title">
+    <h1>{{ site.title }}</h1>
+    <p>{{ site.subtitle }}</p>
+  </header>
 
-{% call hero({
-  kicker: "Here begins",
-  title: "The Story So Far",
-  lede: site.description
-}) %}
-  {{ tallies([
-    { value: count, label: "entry" if count == 1 else "entries" },
-    { value: collections.company | whereNot("status", "dead") | length, label: "still standing" },
-    { value: collections.sessions | slainTotal, label: "foes slain" }
-  ]) }}
-{% endcall %}
+  {#- Each entry's scene headings get ids for the contents -#}
+  {% set prepared = [] %}
+  {% for e in collections.evenings %}
+    {% set s = e.content | scenes("e" + e.data.session) %}
+    {% set prepared = (prepared.push({ e: e, html: s.html, scenes: s.list }), prepared) %}
+  {% endfor %}
 
-{{ rule() }}
+  <nav class="contents" aria-labelledby="contents-h">
+    <h2 class="label" id="contents-h">Contents</h2>
+    <ol>
+      {%- for p in prepared %}
+      <li>
+        <div class="contents__entry">
+          <span class="contents__num" aria-hidden="true">{{ p.e.data.session | roman | lower }}</span>
+          <a href="#evening-{{ p.e.data.session }}">{{ p.e.data.title }}</a>
+          <span class="contents__leader" aria-hidden="true"></span>
+          <time datetime="{{ p.e.data.date | isoDate }}">{{ p.e.data.date | readableDate }}</time>
+        </div>
+        {%- if p.scenes.length %}
+        <ol class="contents__scenes" aria-label="Scenes in {{ p.e.data.title }}">
+          {%- for sc in p.scenes %}<li><a href="#{{ sc.id }}">{{ sc.text }}</a></li>{% endfor %}
+        </ol>
+        {%- endif %}
+      </li>
+      {%- endfor %}
+    </ol>
+  </nav>
 
-{% if latest %}
-{{ feature({
-  kicker: "The latest entry, the " + (latest.data.session | ordinal),
-  title: latest.data.title,
-  href: latest.url,
-  lede: latest.data.summary,
-  linkText: "Read the entry"
-}) }}
-{% endif %}
+  {% for p in prepared %}
+  <article class="evening" id="evening-{{ p.e.data.session }}" aria-labelledby="evening-{{ p.e.data.session }}-h">
+    <header class="evening__head">
+      <p class="evening__kicker">The {{ p.e.data.session | ordinal | lower }} evening</p>
+      <h2 id="evening-{{ p.e.data.session }}-h">{{ p.e.data.title }}</h2>
+      <p class="evening__date"><time datetime="{{ p.e.data.date | isoDate }}">{{ p.e.data.date | readableDate }}</time></p>
+    </header>
 
-{% call section({ title: "The Company", id: "company-h", wide: true }) %}
-  {% call cardGrid() %}
-    {% for c in collections.company | whereNot("status", "dead") %}
-    {{ card({ title: c.data.title, href: c.url, sub: c.data.profession, image: c.data.portrait }) }}
-    {% endfor %}
-  {% endcall %}
-{% endcall %}
+    <div class="story">
+      {{ p.html | safe }}
+    </div>
+
+    {%- if p.e.data.photos %}
+    <div class="photos">
+      {%- for name, ph in p.e.data.photos %}
+      <img src="{{ ph.src }}" alt="{{ ph.alt }}"{% if ph.width %} width="{{ ph.width }}" height="{{ ph.height }}"{% endif %} loading="lazy" decoding="async">
+      {%- endfor %}
+    </div>
+    {%- endif %}
+  </article>
+  {% endfor %}
+
+  <footer>A Dragon Warriors campaign. Games Master: {{ site.gm }}.</footer>
+</main>
+</body>
+</html>

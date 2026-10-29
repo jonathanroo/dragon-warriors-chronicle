@@ -1,15 +1,7 @@
 {
   "title": "Dilemma for his Dragon",
-  "titleLines": ["Dilemma", "for his", "Dragon"],
   "subtitle": "A true account of wanderings in the Vale of Glissom",
-  "tagline": "The chronicle of a Dragon Warriors campaign",
   "description": "The chronicle of a Dragon Warriors campaign: four ill-matched adventurers, a fog-bound village and far too much bobbit stew.",
   "url": "https://jonathanroo.github.io/dragon-warriors-chronicle",
-  "author": "Jon",
-  "gm": "Flix",
-  "nav": [
-    { "label": "The Chronicle", "url": "/chronicle/" },
-    { "label": "The Company", "url": "/company/" },
-    { "label": "Characters and Creatures", "url": "/characters/" }
-  ]
+  "gm": "Flix"
 }

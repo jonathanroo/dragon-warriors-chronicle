@@ -1,9 +1,0 @@
-@use "scss/settings" as *;
-
-.hero {
-  text-align: center;
-
-  &__kicker { margin: 0; @include label-type(1.05rem); color: color(rubric); }
-  h1 { font-size: clamp(2.4rem, 1.8rem + 3vw, 3.6rem); }
-  &__lede { font-size: 1.15em; font-style: italic; color: color(ink-soft); }
-}

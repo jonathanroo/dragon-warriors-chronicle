@@ -1,9 +1,0 @@
----
-layout: layouts/base.njk
-title: The Chronicle
-permalink: /chronicle/
----
-{% from "components/page-header/page-header.njk" import pageHeader %}
-{% from "components/session-list/session-list.njk" import sessionList %}
-{{ pageHeader({ title: title }) }}
-{{ sessionList(collections.sessions, { variant: "contents" }) }}
