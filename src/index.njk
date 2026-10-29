@@ -44,11 +44,6 @@ permalink: /
           <span class="contents__leader" aria-hidden="true"></span>
           <time datetime="{{ p.e.data.date | isoDate }}">{{ p.e.data.date | readableDate }}</time>
         </div>
-        {%- if p.scenes.length %}
-        <ol class="contents__scenes" aria-label="Scenes in {{ p.e.data.title }}">
-          {%- for sc in p.scenes %}<li><a href="#{{ sc.id }}">{{ sc.text }}</a></li>{% endfor %}
-        </ol>
-        {%- endif %}
       </li>
       {%- endfor %}
     </ol>
@@ -76,7 +71,7 @@ permalink: /
   </article>
   {% endfor %}
 
-  <footer>A Dragon Warriors campaign. Games Master: {{ site.gm }}.</footer>
+  <footer>A Dragon Warriors campaign.</footer>
 </main>
 </body>
 </html>

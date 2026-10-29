@@ -28,9 +28,9 @@ Sir Nockturn drew up to his full, considerable height. "I," he announced, "am Si
 
 "Do you now," said the stranger, incredulously dripping from every syllable.
 
-Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do  an assignment he didn’t want. His name was Pedium, and he had been sent to help.
+Before the knight could explain which golden sword, and why it ought to be his, a second traveller stomped up the road behind him: a sorcerer in a travel-stained robe, wearing the expression of a man who had walked a very long way to do an assignment he didn’t want. His name was Pedium, and he had been sent to help.
 
-The stranger watched them eye each other. He sensed the sorcerer had taken an instant disdain for the knight, but the knight couldn’t comprehend that anyone thought him less than wonderful.
+The stranger watched them eye each other. He sensed the sorcerer had instantly taken a dislike to the knight, but the knight couldn’t comprehend that anyone thought him less than wonderful.
 
 "Good sirs, it would seem that I'm a witness to the meeting of great minds. But, alas, this is where I must leave you. If you ever come across my friend Renard," he said, "you'll look after him, won't you, sir?"
 
@@ -40,9 +40,9 @@ With that, he hobbled off down the road, leaving the knight and the sorcerer to 
 
 Further on, the sounds of fighting came drifting up the road: grunting, clanging, and a great deal of swearing. Rounding a bend, the pair came upon a barbarian, Brian Enorath, beset by four little green men with pointy ears.
 
-Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with surprising nimbleness for a man wearing robes.   Sir Nockturn, already showing off, killed two, and made quite sure everybody saw.
+Brian was not, it must be said, covering himself in glory. He swung, missed, swung again, and eventually killed one. Pedium dispatched another with surprising nimbleness for a man wearing robes.   Sir Nockturn, already showing off, killed two and made sure everyone saw.
 
-Through it all, a villager lay curled in the dirt, quivering and moaning. In the heat of the fight, Pedium let fly a fire spell, and more of it found the villager than the goblins. He went up like dry kindling. The three adventurers beat out the flames, exchanged a look, and silently agreed that nobody needed ever mention it. The villager, smouldering gently, never seemed to notice who was responsible.
+Through it all, a villager lay curled in the dirt, quivering and moaning. In the heat of the fight, Pedium let fly a fire spell, and more of it found the villager than the goblins. He went up like dry kindling. The three adventurers beat out the flames, exchanged a look, and silently agreed never to mention it. The villager, smouldering gently, never seemed to notice who was responsible.
 
 "Gobbos!" he gasped. "Nasty gobbos. Thank you, sirs. Thank you." He wrung each of their hands in turn. "Name's Dumpy." He nodded solemnly, as though this explained a great deal. "Dumpy is as Dumpy does."
 
@@ -52,27 +52,27 @@ Dumpy also made a point of telling them all about the "new chef." He was less cl
 
 ## The village
 
-Dumpy led them home to his village, Maiden's Vale. It was getting dark, and as the light went, the mist thickened into fog: cold, wet, and close enough to touch. Dumpy grew twitchier with every step, peering over his shoulder and hurrying them along. He was extremely keen to be indoors.
+Dumpy led them home to his village, Maiden's Vale. As the light faded, the mist thickened into fog: cold, wet, and close enough to touch. Dumpy grew twitchier with every step, peering over his shoulder and hurrying them along. He was extremely keen to be indoors.
 
 At last a building loomed out of the murk: the inn, its sign showing a golden crown. A notice was nailed to the door, written in a hurried hand.
 
 *Adventurers wanted. Enter without*
 
-The tail of the final “t” was pulled off the edge of the rough hewn paper, as if whoever had been writing it had been snatched away mid-word. 
+The tail of the final “t” was torn off the edge of the rough-hewn paper, as if whoever had written it had been snatched away. 
 
 Inside, Dumpy introduced them to the mayor, whose name, it turned out, was also Dumpy. 
 
 "A common name around these parts," said the Mayor. "Please, won't you try the bobbit stew?"
 
-The new chef was a man with a glint in his eye named Rudious Greyrat. He wiped his hands on his apron and admitted, with a wink, that the cooking was really a cover. He had only taken the job while he waited for adventurers to arrive, so that he could help solve the mystery of the fog and the strange goings-on in the village. He seemed delighted that some had finally turned up, even if one of them was singed.
+The new chef, Rudious Greyrat, had a glint in his eye. He wiped his hands on his apron and admitted, with a wink, that the cooking was really a cover. He'd taken the job only while he waited for adventurers to arrive, so he could help solve the mystery of the fog and the strange goings-on in the village. He seemed delighted that some had finally turned up, even if one of them was singed.
 
 Brian, meanwhile, had discovered the local bobbit ale.
 
 ## The legend
 
-As the fire burned low, the mayor told them the legend of Sir [name to come] and his many wives.
+As the fire burned low, the mayor told them the legend of a local ruler and his many wives.
 
-When the knight was buried, he wished that his wives be buried with him. There had been a terrible event, with much screaming and pleading, and in the end every last one of them had gone into the tomb with him. Then a great fog had risen, and the village had never been the same since.
+When he was buried, he wished that his wives be buried with him. There had been a terrible event, with much screaming and pleading, and in the end every last one of them had gone into the tomb with him. Then a great fog had risen, and the village had never been the same since.
 
 He nodded towards an old chest by the fire. Inside was the knight's heart, black and wizened. Nobody asked why the village kept it there. Nobody was quite sure they wanted to know.
 
@@ -94,7 +94,7 @@ Outside, Rudious hammered on the door. Pedium began conjuring a spell to blow it
 
 Rudious and Pedium leapt over the fallen knight, fled upstairs, and had an embarrassing panic attack under a bed.
 
-At last, Brian awoke. He bolted down the stairs to find the two white figures gliding through the doorway, nothing left of them now but skeletons and rags. Somehow he held their terrible gaze.
+At last, Brian awoke. He bolted down the stairs to find the two white figures gliding through the doorway; nothing of them remained but skeletons and rags. Somehow he held their terrible gaze.
 
 "Where…" they begged, in a rasping whisper. "Where… hope?"
 
@@ -130,9 +130,9 @@ Brian hauled him off by the scruff of his neck while the others worked to free t
 
 Nobody backed down.
 
-"Well, it's gonna be like that, is it?" said Biff, and walked off in a huff, into the fog.
+"Well, it's gonna be like that, is it?" Biff said, and walked off in a huff into the fog.
 
-The company looked at the fox. They thought about the traveller on the road, and his friend Renard who needed looking after. They thought about the word Biff had used.
+The company looked at the fox. They thought about the traveller on the road, and his friend Renard, who needed looking after. They thought about the word Biff had used.
 
 And they pondered their next move.
 
@@ -142,5 +142,5 @@ And they pondered their next move.
 
 - Is the fox Renard, and why does he need looking after?
 - What happened to the old chef?
-- Why does the inn keep Sir [name to come]'s heart in a chest by the fire?
+- Why does the inn keep a heart in a chest by the fire?
 - What are the white women looking for, and why did they flee?
